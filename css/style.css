@@ -207,8 +207,8 @@ footer a:hover { color: var(--ink); }
 }
 
 /* ── logo ── */
-.brand-logo { width: 26px; height: 26px; vertical-align: -6px; margin-right: 10px; border-radius: 6px; }
-.hero-logo { width: 72px; height: 72px; border-radius: 16px; margin-bottom: 28px; }
+.brand-logo { height: 26px; width: auto; vertical-align: -7px; margin-right: 10px; border-radius: 5px; }
+.hero-logo { height: 72px; width: auto; border-radius: 12px; margin-bottom: 28px; }
 
 /* ── install-blok met kopieerknop ── */
 .install { position: relative; }
