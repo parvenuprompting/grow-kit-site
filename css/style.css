@@ -205,3 +205,26 @@ footer a:hover { color: var(--ink); }
   .stap p { grid-column: 2; }
   nav ul { gap: 16px; }
 }
+
+/* ── logo ── */
+.brand-logo { width: 26px; height: 26px; vertical-align: -6px; margin-right: 10px; border-radius: 6px; }
+.hero-logo { width: 72px; height: 72px; border-radius: 16px; margin-bottom: 28px; }
+
+/* ── install-blok met kopieerknop ── */
+.install { position: relative; }
+.copy-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #faf8f4;
+  color: var(--ink);
+  border: 0;
+  border-radius: 3px;
+  padding: 8px 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.copy-btn:hover { opacity: 0.85; }
+.copy-btn.ok { background: #2e7d32; color: #fff; }

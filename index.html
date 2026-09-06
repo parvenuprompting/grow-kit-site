@@ -10,7 +10,7 @@
 <body>
 <header>
   <div class="wrap nav">
-    <a class="brand" href="./">Grow <em>Kit</em></a>
+    <a class="brand" href="./"><img class="brand-logo" src="assets/logo.jpg" alt="">Grow <em>Kit</em></a>
     <nav aria-label="Hoofdmenu">
       <ul>
         <li><a href="./">Index</a></li>
@@ -24,6 +24,7 @@
 
 <main class="wrap">
   <section class="hero">
+    <img class="hero-logo" src="assets/logo.jpg" alt="Grow Kit-logo">
     <h1>De agent <em>bewijst.</em><br>Jij bepaalt.</h1>
     <p class="lede">Grow Kit is een zero-trust AI-werkbank. Je geeft een idee, de agent voert een stappenplan uit, en elk resultaat wordt door de machine gecontroleerd — niet door de agent.</p>
     <a class="btn" href="https://github.com/parvenuprompting/Grow-Kit">Bekijk op GitHub</a>
@@ -55,10 +56,10 @@
   <section>
     <p class="kicker">Snel starten</p>
     <h2>Vier regels.</h2>
-<pre><code>git clone git@github.com:parvenuprompting/Grow-Kit.git
+<div class="install"><button class="copy-btn" onclick="copyInstall(this)">Kopieer</button><pre><code>git clone git@github.com:parvenuprompting/Grow-Kit.git
 cd Grow-Kit
 python3 -m venv .venv &amp;&amp; .venv/bin/pip install cryptography
-python3 loop.py            # planten / hervatten / taak / ratificatie / status</code></pre>
+python3 loop.py            # planten / hervatten / taak / ratificatie / status</code></pre></div>
   </section>
 </main>
 
@@ -67,5 +68,14 @@ python3 loop.py            # planten / hervatten / taak / ratificatie / status</
     <p>Grow Kit — <em>GROW</em> = Governed Reproducible Operational Workflow. MIT-licentie. Geen tracking, geen cookies, self-hosted fonts.</p>
   </div>
 </footer>
+<script>
+function copyInstall(btn) {
+  var cmd = document.querySelector('.install code').innerText;
+  navigator.clipboard.writeText(cmd).then(function () {
+    btn.textContent = 'Gekopieerd ✓'; btn.classList.add('ok');
+    setTimeout(function () { btn.textContent = 'Kopieer'; btn.classList.remove('ok'); }, 2000);
+  });
+}
+</script>
 </body>
 </html>
