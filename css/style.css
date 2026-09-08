@@ -228,3 +228,15 @@ footer a:hover { color: var(--ink); }
 }
 .copy-btn:hover { opacity: 0.85; }
 .copy-btn.ok { background: #2e7d32; color: #fff; }
+
+
+/* ── Dagboek ── */
+.dag-entry { max-width: 720px; margin: 0 auto 3.5rem; }
+.dag-entry h2 { font-family: var(--serif); font-weight: 400; font-size: 28px; margin-bottom: 4px; }
+.dag-meta { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+.dag-meta .auteur { color: var(--accent); font-weight: 600; }
+.dag-entry p { margin-bottom: 1rem; color: var(--ink); }
+.dag-entry blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; margin: 1.2rem 0; font-style: italic; color: var(--muted); }
+.dag-lijst { list-style: none; padding: 0; margin: 1.2rem 0; }
+.dag-lijst li { padding-left: 1.4rem; position: relative; margin-bottom: 0.5rem; }
+.dag-lijst li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
