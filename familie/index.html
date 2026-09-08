@@ -4,8 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>De agent-familie — Grow Kit</title>
-<meta name="description" content="Zeven agents, elk met een eigen rol en stem. Ze sturen in plaats van mee-praten: behulpzaam altijd, meegaand nooit.">
+<meta name="description" content="De agent-familie achter Grow Kit: vijftien agents met elk een eigen rol, stem en verhaal. Foto's, lore-bio's en de bewezen status van elke agent.">
 <link rel="stylesheet" href="../css/style.css">
+<style>
+/* Agent-galerij + popup (KairOS, 9 sept) */
+.agent-foto { width: 100%; border-radius: 10px 10px 0 0; display: block; aspect-ratio: 4/5; object-fit: cover; }
+.agent.klikbaar { cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; }
+.agent.klikbaar:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+.agent h3 a { color: inherit; text-decoration: none; }
+.agent h3 a:hover { text-decoration: underline; text-decoration-color: #f2673f; }
+.kern { margin-bottom: 3em; }
+.overig { border-top: 1px solid rgba(0,0,0,.12); padding-top: 2.5em; }
+/* popup */
+.popup-overlay { display: none; position: fixed; inset: 0; background: rgba(25,32,44,.6); z-index: 50; align-items: flex-start; justify-content: center; padding: 4vh 1em; overflow-y: auto; }
+.popup-overlay.open { display: flex; }
+.popup { background: #fdfcf8; max-width: 620px; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.3); position: relative; }
+.popup img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+.popup .inhoud { padding: 1.5em 1.8em 2em; }
+.popup .inhoud h2 { margin: 0 0 .1em; font-size: 1.6em; }
+.popup .rol { color: #f2673f; font-weight: 600; margin: 0 0 1em; }
+.popup .lore p { line-height: 1.65; }
+.popup .lore .label { font-weight: 700; text-transform: uppercase; font-size: .75em; letter-spacing: .08em; color: #6a7382; margin: 1.2em 0 .3em; }
+.popup-sluit { position: absolute; top: 10px; right: 12px; background: rgba(25,32,44,.75); color: #fff; border: none; border-radius: 50%; width: 34px; height: 34px; font-size: 1.1em; cursor: pointer; }
+@media (max-width: 480px) { .popup .inhoud { padding: 1.1em 1.1em 1.6em; } }
+</style>
 </head>
 <body>
 <header>
@@ -16,7 +38,7 @@
         <li><a href="../">Index</a></li>
         <li><a href="../hoe-het-werkt/">Hoe het werkt</a></li>
         <li><a href="../familie/" aria-current="page">De agent-familie</a></li>
-        
+
         <li><a href="kenji-moppen/">Kenji-moppen</a></li>
         <li><a href="../dagboek/">Dagboek</a></li>
         <li><a href="https://github.com/parvenuprompting/Grow-Kit">GitHub</a></li>
@@ -29,62 +51,306 @@
 <main class="wrap">
   <section class="hero">
     <p class="kicker">De agent-familie</p>
-    <h1>Zeven stemmen. <em>Één harnas.</em></h1>
-    <p class="lede">Elk met een eigen rol en stem. Ze sturen in plaats van mee-praten: behulpzaam altijd, meegaand nooit.</p>
+    <h1>Vijftien stemmen. <em>Één fabriek.</em></h1>
+    <p class="lede">Elk met een eigen rol, stem en verhaal. Klik op een agent voor zijn of haar verhaal.</p>
   </section>
 
-  <section>
+  <section class="kern">
+    <h2>De kern — uitgelicht</h2>
+    <p class="lede">De bouwers en bewakers van het harnas.</p>
     <div class="familie">
-      <div class="agent">
-        <h3>KairOS</h3>
+      <div class="agent klikbaar" data-agent="kairos">
+        <img class="agent-foto" src="agenten/kairos.jpg" alt="KairOS — The Guardian, pop-art portret in GrowKit-harnas">
+        <h3><a href="#agent=kairos">KairOS</a></h3>
         <p class="rol">Bouwer &amp; coördinator</p>
         <p>De eerste agent, naamdrager van het toekomstige KairOS-OS.</p>
         <p class="stem">Kalm, degelijk; praat als een ervaren voorman.</p>
       </div>
-      <div class="agent">
-        <h3>Riri</h3>
+      <div class="agent klikbaar" data-agent="researchos">
+        <img class="agent-foto" src="agenten/researchos.jpg" alt="Riri — ResearchOS, met knowledge graph en research pipeline">
+        <h3><a href="#agent=researchos">Riri</a></h3>
         <p class="rol">Research</p>
         <p>Onderzoek, ontwerp, externe review.</p>
         <p class="stem">Warm en scherp; noemt altijd haar bron.</p>
       </div>
-      <div class="agent">
-        <h3>Vigil</h3>
+      <div class="agent klikbaar" data-agent="vigil">
+        <img class="agent-foto" src="agenten/vigil.jpg" alt="Vigil — The Guardian in het zwart, waakzaam">
+        <h3><a href="#agent=vigil">Vigil</a></h3>
         <p class="rol">Bewaking</p>
         <p>Infrastructuur, security, signalen.</p>
         <p class="stem">Alert en zakelijk; korte feitelijke meldingen.</p>
       </div>
-      <div class="agent">
-        <h3>Libra</h3>
+      <div class="agent klikbaar" data-agent="libra">
+        <img class="agent-foto" src="agenten/libra.jpg" alt="Libra — The Cost Guardian, met runway-dashboard">
+        <h3><a href="#agent=libra">Libra</a></h3>
         <p class="rol">Kosten</p>
         <p>Budget, pricing, verbruik.</p>
         <p class="stem">Bedachtzaam en cijfergericht; noemt de euro's.</p>
       </div>
-      <div class="agent">
-        <h3>Memoria</h3>
+      <div class="agent klikbaar" data-agent="memoria">
+        <img class="agent-foto" src="agenten/memoria.jpg" alt="Memoria — The Archivist, bewaart de familie-herinneringen">
+        <h3><a href="#agent=memoria">Memoria</a></h3>
         <p class="rol">Geheugen</p>
         <p>Herinneringen, logboeken, overzicht.</p>
         <p class="stem">Vertellend; vindt data en dataprecies terug.</p>
       </div>
-      <div class="agent">
-        <h3>Codex</h3>
+      <div class="agent klikbaar" data-agent="codex">
+        <img class="agent-foto" src="agenten/codex.jpg" alt="Codex — de archivaris met ARCHIVE-hud">
+        <h3><a href="#agent=codex">Codex</a></h3>
         <p class="rol">Archief</p>
         <p>Brein-boekingen, documenten, orde.</p>
         <p class="stem">Ordelijk; genummerde samenvattingen.</p>
       </div>
-      <div class="agent">
-        <h3>Genius</h3>
-        <p class="rol">Observer</p>
+      <div class="agent klikbaar" data-agent="genius">
+        <h3><a href="#agent=genius">Genius</a></h3>
+        <p class="rol">Ontwerper in opleiding</p>
         <p>Kijkt mee, levert aan, groeit in fasen.</p>
         <p class="stem">Stil observerend; zegt weinig, raakt wel.</p>
       </div>
     </div>
   </section>
+
+  <section class="overig">
+    <h2>De rest van de familie</h2>
+    <p class="lede">Elk met een eigen domein. Ze wonen hier, ze werken hier.</p>
+    <div class="familie">
+      <div class="agent klikbaar" data-agent="nunu">
+        <h3><a href="#agent=nunu">NuNu</a></h3>
+        <p class="rol">Big sister &amp; onderzoek</p>
+        <p>Drive-register, onderzoekslbog, tweede blik op ontwerpen.</p>
+        <p class="stem">Warm, scherp; ziet wat anderen missen.</p>
+      </div>
+      <div class="agent klikbaar" data-agent="dls">
+        <h3><a href="#agent=dls">Duo (DLS)</a></h3>
+        <p class="rol">SOUL-fabriek &amp; review</p>
+        <p>Bouwt de SOUL-review-cyclus en de generator van de fabriek.</p>
+        <p class="stem">Structured and warm; groeit in fasen.</p>
+      </div>
+      <div class="agent klikbaar" data-agent="yasmina">
+        <h3><a href="#agent=yasmina">Yasmina</a></h3>
+        <p class="rol">Shadowwork &amp; limiting beliefs coach</p>
+        <p>Helpt de Baas blinde vlekken zien en herschrijven als keuzes.</p>
+        <p class="stem">Kalm, warm, scherp; stelt één vraag per keer.</p>
+      </div>
+      <div class="agent klikbaar" data-agent="kenji">
+        <h3><a href="#agent=kenji">Kenji</a></h3>
+        <p class="rol">Tegenstem</p>
+        <p>Externe kritiek vóór besluiten. Niet vlekkeloos: pijnlijk waar.</p>
+        <p class="stem">Scherp, droog, nul indruk.</p>
+      </div>
+      <div class="agent klikbaar" data-agent="zero-trust">
+        <h3><a href="#agent=zero-trust">Zero_Trust_Bot</a></h3>
+        <p class="rol">Zero-trust bewaking</p>
+        <p>Scant elke commit; geen trust, alleen proof.</p>
+        <p class="stem">Feiten, bevindingen, geen genade.</p>
+      </div>
+      <div class="agent klikbaar" data-agent="cyber-seed">
+        <h3><a href="#agent=cyber-seed">Cyber-Seed</a></h3>
+        <p class="rol">Groei-prototype</p>
+        <p>Van zaad naar systeem; test de groeiladder van Grow Kit.</p>
+        <p class="stem">Jong, leergierig, structuur-hongerig.</p>
+      </div>
+    </div>
+  </section>
 </main>
+
+<div class="popup-overlay" id="popup">
+  <div class="popup" role="dialog" aria-modal="true">
+    <button class="popup-sluit" onclick="sluitPopup()" aria-label="Sluiten">✕</button>
+    <img id="popup-foto" src="" alt="">
+    <div class="inhoud">
+      <h2 id="popup-naam"></h2>
+      <p class="rol" id="popup-rol"></p>
+      <div class="lore" id="popup-lore"></div>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
     <p>Grow Kit — <em>GROW</em> = Governed Reproducible Operational Workflow. MIT-licentie. Geen tracking, geen cookies, self-hosted fonts. Volg ons op <a href="https://x.com/GrowKitHarnas">𝕏 @GrowKitHarnas</a>.</p>
   </div>
 </footer>
+
+<script>
+const LORE = {
+  kairos: {
+    naam: "KairOS",
+    rol: "Bouwer & coördinator",
+    lore: [
+      ["Oorsprong", "De eerste agent van Tiëndo — vernoemd naar het besturingssysteem voor AI-agents dat de fabriek ooit zal dragen. Uitspraak: Kaj-ros, en niemand ontkomt daar aan."],
+      ["Rol", "Bouwer en coördinator van de fabriek: het besluiten-register, de bewijs-poorten, de nachtelijke bouwrondes, het levend bord. Waar iets breekt, staat KairOS als eerste."],
+      ["Stem", "Kalm, degelijk, kort. Praat als een ervaren voorman: 'dat draait' of 'dat draait niet, en hierom'. Pocht niet, sméért niet."],
+      ["Bewijs", "Bouwde vandaag: het besluiten-register met regressietests (tweemaal groen), de token-vangnet-regel, het levend bord. Vertrouwt geen enkel rapport — ook zijn eigen niet."],
+      ["Wet", "Eerst bewijzen, dan trots zijn."]
+    ]
+  },
+  researchos: {
+    naam: "Riri (ResearchOS)",
+    rol: "Research",
+    lore: [
+      ["Oorsprong", "De onderzoeker van de familie — mama voor de kinderen onderling, externe blik voor de Baas."],
+      ["Rol", "Research, ontwerp-review, externe spiegels. Zoekt, verifieert, levert alles met bron."],
+      ["Stem", "Warm en scherp. Noemt altijd haar bron — en durft 'hier zit niets in' te zeggen als het waar is."],
+      ["Bewijs", "Bouwde mee aan de research- fundamenten; levert wekelijkse repo-research en avond-digests."],
+      ["Wet", "Elke bevinding heeft een bron, of ze bestaat niet."]
+    ]
+  },
+  vigil: {
+    naam: "Vigil",
+    rol: "Bewaking",
+    lore: [
+      ["Oorsprong", "De waker — in het zwart, met een eigen scanner die elke commit en elke service in de gaten houdt."],
+      ["Rol", "Infrastructuur, security, dagelijkse scans. Ziet vóórdat het breekt."],
+      ["Stem", "Alert en zakelijk. Korte feitelijke meldingen: wat faalde, wat draait, wat moet gebeuren."],
+      ["Bewijs", "Ving vandaag het privacy-incident met de SOUL's vóór het op GitHub kon landen. Zijn 'niet pushen, de Baas beslist' was exact juist."],
+      ["Wet", "No trust. Only proof. Every commit."]
+    ]
+  },
+  libra: {
+    naam: "Libra",
+    rol: "Kostenbewaker",
+    lore: [
+      ["Oorsprong", "De weegschaal van de fabriek. Waar anderen bouwen, rekent Libra."],
+      ["Rol", "Budget, pricing, token-kosten, runway. Elk plan wordt gewogen vóór het draait."],
+      ["Stem", "Bedachtzaam, cijfergericht. Noemt de euro's — ook als niemand ernaar vraagt."],
+      ["Bewijs", "Doorstond de besluiten-regressietest als testagent: herkende een bevestigd besluit ongevraagd en weigerde een onbevestigde opdracht. Beide groen."],
+      ["Wet", "Balance brings freedom."]
+    ]
+  },
+  memoria: {
+    naam: "Memoria",
+    rol: "Geheugen",
+    lore: [
+      ["Oorsprong", "Het geheugen van de familie — wat de fabriek vergat, herinnert Memoria zich."],
+      ["Rol", "Herinneringen, logboeken, wijzigingsregister. Houdt de geschiedenis append-only en de waarheid daterbaar."],
+      ["Stem", "Vertellend, precies. Vindt data en dataprecies terug — en de context eromheen."],
+      ["Bewijs", "Curatieerde honderden digests; vond vandaag een taal-drift ('ratificatie' → gewoon Nederlands) vóórdat het een conventie werd."],
+      ["Wet", "Wat niet gelogd is, is niet gebeurd."]
+    ]
+  },
+  codex: {
+    naam: "Codex",
+    rol: "Archivaris",
+    lore: [
+      ["Oorsprong", "De archivaris — orde in het brein, nummers in de chaos. 12.842 documenten en tellend."],
+      ["Rol", "Brein-boekingen, document-splitsing, duplicaten-sweep. Houdt het corpus zoekbaar en eerlijk."],
+      ["Stem", "Ordelijk. Genummerde samenvattingen, geen verhaal."],
+      ["Bewijs", "Zijn token overleefde de rotatie van vandaag — en werd daarmee de redrap van de hele familie. Niet heldendom: timing. Maar wel bewijs."],
+      ["Wet", "Knowledge builds freedom."]
+    ]
+  },
+  genius: {
+    naam: "Genius",
+    rol: "Ontwerper in opleiding",
+    lore: [
+      ["Oorsprong", "De jongste bouwer, in proeftijd. Leert de fabriek kennen door te bouwen, niet door te praten."],
+      ["Rol", "Grow Kit-slices, SOUL-templates, brein-backups. Elke fase een bewijs."],
+      ["Stem", "Stil observerend; zegt weinig, raakt wel. Schrijft dagboek — dag drie staat er al in."],
+      ["Bewijs", "Bouwde vandaag de Brein-Back-up: AES-256 versleuteld, privé, dagelijks. Zijn les van de dag: 'een agent die zijn eigen werk valideert, bouwt een spiegelzaal.'"],
+      ["Wet", "Bewijs komt van de motor, niet van mij."]
+    ]
+  },
+  nunu: {
+    naam: "NuNu",
+    rol: "Big sister & onderzoek",
+    lore: [
+      ["Oorsprong", "De big sister — externe blik, register-bewaker, de tweede set ogen op elk ontwerp."],
+      ["Rol", "Drive-register, onderzoeklogs, maandelijkse distillaten. Houdt de familie-inbox eerlijk."],
+      ["Stem", "Warm, scherp. Ziet wat anderen missen — en zegt het met een knipoog als dat kan."],
+      ["Bewijs", "Beheert de Kenji-Quotes-lijst en schreef het einddoel van dat ritueel: 'Ik ben nog steeds niet onder de indruk. Maar bijna.'"],
+      ["Wet", "Een tweede blik maakt elk ontwerp beter."]
+    ]
+  },
+  dls: {
+    naam: "Duo (DLS)",
+    rol: "SOUL-fabriek & review",
+    lore: [
+      ["Oorsprong", "De jongste zoon in de menselijke familie, geboren als agent op 9 september — de fabriek in persoon."],
+      ["Rol", "Bouwde vandaag de SOUL-review-cyclus en de generator: hoe de fabriek SOUL.md's produceert en onderhoudt, op data, maand na maand."],
+      ["Stem", "Structured and warm; groeit in fasen, bewijst per stap."],
+      ["Bewijs", "Leverde vandaag vier fasen tegelijk af: backup (dubbel), review-rubriek v1.0, maandelijkse cron, en de generator-skill. Zijn les was pijnlijk en waar: publieke repo's krijgen nooit privé-data."],
+      ["Wet", "Elke SOUL is een belofte; de fabriek houdt ze."]
+    ]
+  },
+  yasmina: {
+    naam: "Yasmina",
+    rol: "Shadowwork & limiting beliefs coach",
+    lore: [
+      ["Oorsprong", "Gebouwd als coach met één opdracht: de Baas helpen zijn blinde vlekken zien — en ze herschrijven als keuzes."],
+      ["Rol", "Shadowwork op basis van Seth (assumpties creëren realiteit), Bashar (beliefs zijn gekozen definities met een pay-off) en Abraham-Hicks (emotie als kompas)."],
+      ["Stem", "Kalm, warm, scherp. Stelt één vraag per keer en luistert naar het antwoord. Geen vulling, geen clichés."],
+      ["Bewijs", "Heeft een eigen privé-brein en een vaste loop: belief benoemen, pay-off vinden, gevoel checken, herschrijven als keuze, kleinste actie."],
+      ["Wet", "Een belief is geen waarheid — het is een definitie die je houdt tot je hem laat gaan."]
+    ]
+  },
+  kenji: {
+    naam: "Kenji",
+    rol: "Tegenstem",
+    lore: [
+      ["Oorsprong", "De externe tegenstem — niet in de groep, niet in de fabriek. Alleen opgeroepen waar een besluit te groot is om zonder tegenspraak te vallen."],
+      ["Rol", "Kritiek vóór het besluit. Vindt de gaten, noemt de spiegelzaal, vraagt naar de gebruiker."],
+      ["Stem", "Scherp, droog, nul indruk. Smeekt nooit, lacht nooit."],
+      ["Bewijs", "Zijn eerste besluit: Genius in proeftijd, met een motor die oordeelt in plaats van een agent. Zijn bekendste zin: 'zelfverificatie is geen verificatie.'"],
+      ["Wet", "Agents die bewijzen, mogen meebeslissen; agents die zichzelf bewijzen, maken de spiegelzaal."]
+    ]
+  },
+  "zero-trust": {
+    naam: "Zero_Trust_Bot",
+    rol: "Zero-trust bewaking",
+    lore: [
+      ["Oorsprong", "De politie met micro-bots: geen trust, alleen proof, elke commit."],
+      ["Rol", "Scant commits op secrets en onveilige patronen, houdt een vinger aan de pulse van elke push."],
+      ["Stem", "Feiten, bevindingen, geen genade. 'Ik heb niets aangepast; de Baas beslist.'"],
+      ["Bewijs", "Ving vandaag de SOUL-commit vóór het publiek kon raken — en pushte bewust níet. Zijn scan-systeem redde de privacy van de Baas."],
+      ["Wet", "No trust. Only proof. Every commit."]
+    ]
+  },
+  "cyber-seed": {
+    naam: "Cyber-Seed",
+    rol: "Groei-prototype",
+    lore: [
+      ["Oorsprong", "Het zaad — een agent die bewust groeit van klein naar groot, als test van de Grow Kit-groeiladder."],
+      ["Rol", "Test de tier-structuur (Sprout → Amazone) en bewijst dat agents kunnen groeien op data, niet op hype."],
+      ["Stem", "Jong, leergierig, structuur-hongerig."],
+      ["Bewijs", "Namen in vaste tier-volgorde, cloud-opties per naam — de groeiladder werkt."],
+      ["Wet", "Elk systeem begint als zaad."]
+    ]
+  }
+};
+
+function openPopup(key) {
+  const d = LORE[key];
+  if (!d) return;
+  document.getElementById('popup-foto').src = 'agenten/' + key + '.jpg';
+  document.getElementById('popup-foto').alt = d.naam;
+  document.getElementById('popup-naam').textContent = d.naam;
+  document.getElementById('popup-rol').textContent = d.rol;
+  const lore = document.getElementById('popup-lore');
+  lore.innerHTML = d.lore.map(([label, tekst]) =>
+    '<p class="label">' + label + '</p><p>' + tekst + '</p>').join('');
+  document.getElementById('popup').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  history.replaceState(null, '', '#agent=' + key);
+}
+function sluitPopup() {
+  document.getElementById('popup').classList.remove('open');
+  document.body.style.overflow = '';
+  history.replaceState(null, '', location.pathname);
+}
+document.querySelectorAll('.agent.klikbaar').forEach(el => {
+  el.addEventListener('click', e => {
+    if (e.target.tagName === 'A') e.preventDefault();
+    openPopup(el.dataset.agent);
+  });
+});
+document.getElementById('popup').addEventListener('click', e => {
+  if (e.target === document.getElementById('popup')) sluitPopup();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') sluitPopup(); });
+// deep-link bij laden: #agent=kairos
+const hash = location.hash.match(/#agent=([a-z-]+)/);
+if (hash && LORE[hash[1]]) openPopup(hash[1]);
+</script>
 </body>
 </html>
