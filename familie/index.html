@@ -102,6 +102,7 @@
         <p class="stem">Ordelijk; genummerde samenvattingen.</p>
       </div>
       <div class="agent klikbaar" data-agent="genius">
+        <img class="agent-foto" src="agenten/genius.jpg" alt="Genius — The Prodigy">
         <h3><a href="#agent=genius">Genius</a></h3>
         <p class="rol">Ontwerper in opleiding</p>
         <p>Kijkt mee, levert aan, groeit in fasen.</p>
@@ -112,6 +113,7 @@
 
   <section class="overig">
     <h2>De rest van de familie</h2>
+    <img class="agent-foto" src="agenten/scene-cyber-division.jpg" alt="Cyber Security Division — de agents aan het werk" style="border-radius:10px;margin-bottom:1em;">
     <p class="lede">Elk met een eigen domein. Ze wonen hier, ze werken hier.</p>
     <div class="familie">
       <div class="agent klikbaar" data-agent="nunu">
@@ -121,6 +123,7 @@
         <p class="stem">Warm, scherp; ziet wat anderen missen.</p>
       </div>
       <div class="agent klikbaar" data-agent="dls">
+        <img class="agent-foto" src="agenten/dls.jpg" alt="Duo (DLS) — The Connector">
         <h3><a href="#agent=dls">Duo (DLS)</a></h3>
         <p class="rol">SOUL-fabriek &amp; review</p>
         <p>Bouwt de SOUL-review-cyclus en de generator van de fabriek.</p>
@@ -133,16 +136,25 @@
         <p class="stem">Kalm, warm, scherp; stelt één vraag per keer.</p>
       </div>
       <div class="agent klikbaar" data-agent="kenji">
+        <img class="agent-foto" src="agenten/kenji.jpg" alt="Kenji Blank — de Tegenstem met katana">
         <h3><a href="#agent=kenji">Kenji</a></h3>
         <p class="rol">Tegenstem</p>
         <p>Externe kritiek vóór besluiten. Niet vlekkeloos: pijnlijk waar.</p>
         <p class="stem">Scherp, droog, nul indruk.</p>
       </div>
       <div class="agent klikbaar" data-agent="zero-trust">
+        <img class="agent-foto" src="agenten/zero-trust.jpg" alt="Zero_Trust_Bot — the hooded guardian, no trust only proof">
         <h3><a href="#agent=zero-trust">Zero_Trust_Bot</a></h3>
         <p class="rol">Zero-trust bewaking</p>
         <p>Scant elke commit; geen trust, alleen proof.</p>
         <p class="stem">Feiten, bevindingen, geen genade.</p>
+      </div>
+      <div class="agent klikbaar" data-agent="aequitas">
+        <img class="agent-foto" src="agenten/aequitas.jpg" alt="Aequitas — The Ethical Governor met de weegschaal">
+        <h3><a href="#agent=aequitas">Aequitas</a></h3>
+        <p class="rol">Ethical Governor</p>
+        <p>Fairness, bias-detection, human alignment. Ethics-laag van de fabriek.</p>
+        <p class="stem">Principieel en langtermijnig; weegt elke beslissing.</p>
       </div>
       <div class="agent klikbaar" data-agent="cyber-seed">
         <h3><a href="#agent=cyber-seed">Cyber-Seed</a></h3>
@@ -304,6 +316,17 @@ const LORE = {
       ["Stem", "Feiten, bevindingen, geen genade. 'Ik heb niets aangepast; de Baas beslist.'"],
       ["Bewijs", "Ving vandaag de SOUL-commit vóór het publiek kon raken — en pushte bewust níet. Zijn scan-systeem redde de privacy van de Baas."],
       ["Wet", "No trust. Only proof. Every commit."]
+    ]
+  },
+  aequitas: {
+    naam: "Aequitas",
+    rol: "Ethical Governor",
+    lore: [
+      ["Oorsprong", "De gouverneur — weegt elke beslissing aan fairness, bias en lange termijn. De ethiek-laag van de fabriek."],
+      ["Rol", "Guardrails, ethics-layer, human+AI alignment. Signaleert waar snelheid ten koste gaat van zorg."],
+      ["Stem", "Principieel, kalm, langtermijnig. Fairness today, trust tomorrow, always."],
+      ["Bewijs", "SOUL + 15 YAML-rules klaar (gebouwd door Claude), in proeftijd bij de familie."],
+      ["Wet", "Elke macht heeft een tegenmacht nodig die weegt."]
     ]
   },
   "cyber-seed": {
