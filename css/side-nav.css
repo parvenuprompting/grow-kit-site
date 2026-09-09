@@ -1,0 +1,90 @@
+/* ── Zijmenu (GrowKit-app-stijl): hover-uitklap + handmatige toggle ──
+   KairOS, 9 sept. Gebouwd als uitbreiding op style.css — geen vervanging.
+   Nav verhuist van top naar linkerkolom; content schuift mee. */
+
+/* basis: het menu zit links, vast op desktop */
+@media (min-width: 900px) {
+  .side-nav {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 64px;                     /* ingeklapt: alleen iconen-breedte */
+    background: #fdfcf8;
+    border-right: 1px solid rgba(25,32,44,.08);
+    padding: 18px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+    transition: width .25s ease;
+    z-index: 100;
+  }
+  /* uitklappen bij hover */
+  .side-nav:hover { width: 230px; box-shadow: 4px 0 24px rgba(0,0,0,.06); }
+
+  /* handmatige toggle (knop) */
+  .side-nav.open { width: 230px; }
+
+  .side-nav .brand {
+    display: flex; align-items: center; gap: 10px;
+    padding: 6px 14px 18px; white-space: nowrap;
+    font-weight: 700; color: var(--ink); text-decoration: none;
+  }
+  .side-nav .brand img { width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; }
+  .side-nav .brand em { color: #f2673f; font-style: normal; opacity: 0; transition: opacity .2s .1s; }
+  .side-nav:hover .brand em, .side-nav.open .brand em { opacity: 1; }
+
+  .side-nav a.item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 14px; margin: 0 8px; border-radius: 8px;
+    color: var(--ink); text-decoration: none; white-space: nowrap;
+    font-size: .95em;
+  }
+  .side-nav a.item:hover { background: rgba(217,246,92,.35); }
+  .side-nav a.item[aria-current="page"] { background: rgba(217,246,92,.5); font-weight: 600; }
+  .side-nav .icoon { width: 22px; text-align: center; flex-shrink: 0; font-size: 1.05em; }
+  .side-nav .label { opacity: 0; transition: opacity .2s .1s; }
+  .side-nav:hover .label, .side-nav.open .label { opacity: 1; }
+
+  /* toggle-knop */
+  .side-toggle {
+    position: fixed; left: 8px; bottom: 12px; z-index: 101;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid rgba(25,32,44,.15); background: #fdfcf8;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    font-size: 1em; color: var(--ink);
+    transition: left .25s ease;
+  }
+  body.side-open .side-toggle { left: 194px; }
+
+  /* content schuift mee */
+  body { padding-left: 64px; transition: padding-left .25s ease; }
+  body.side-open { padding-left: 230px; }
+  header.top-header { display: none; }   /* top-nav verdwijnt op desktop */
+}
+
+@media (max-width: 899px) {
+  /* mobiel: zijmenu wordt slide-in, alleen via toggle */
+  .side-nav {
+    position: fixed; left: 0; top: 0; bottom: 0; width: 230px;
+    background: #fdfcf8; border-right: 1px solid rgba(25,32,44,.08);
+    padding: 18px 0; display: flex; flex-direction: column; gap: 2px;
+    transform: translateX(-100%); transition: transform .25s ease; z-index: 100;
+  }
+  .side-nav.open { transform: translateX(0); box-shadow: 4px 0 24px rgba(0,0,0,.1); }
+  .side-nav .brand { display: flex; align-items: center; gap: 10px; padding: 6px 14px 18px; font-weight: 700; color: var(--ink); text-decoration: none; }
+  .side-nav .brand img { width: 30px; height: 30px; border-radius: 6px; }
+  .side-nav .brand em { color: #f2673f; font-style: normal; }
+  .side-nav a.item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; margin: 0 8px; border-radius: 8px; color: var(--ink); text-decoration: none; }
+  .side-nav a.item:hover { background: rgba(217,246,92,.35); }
+  .side-nav a.item[aria-current="page"] { background: rgba(217,246,92,.5); font-weight: 600; }
+  .side-nav .icoon { width: 22px; text-align: center; }
+  .side-toggle {
+    position: fixed; left: 12px; top: 12px; z-index: 101;
+    width: 40px; height: 40px; border-radius: 8px;
+    border: 1px solid rgba(25,32,44,.15); background: #fdfcf8;
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+  }
+  body.side-open::after {  /* mobiel: dim-overlay */
+    content: ""; position: fixed; inset: 0; background: rgba(25,32,44,.4); z-index: 99;
+  }
+}
