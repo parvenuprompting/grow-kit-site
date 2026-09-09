@@ -1,90 +1,105 @@
 /* ── Zijmenu (GrowKit-app-stijl): hover-uitklap + handmatige toggle ──
-   KairOS, 9 sept. Gebouwd als uitbreiding op style.css — geen vervanging.
-   Nav verhuist van top naar linkerkolom; content schuift mee. */
+   KairOS, 9 sept. v2: strakker, ingeklapt = alleen logo. */
 
-/* basis: het menu zit links, vast op desktop */
+:root {
+  --sn-collapsed: 76px;
+  --sn-expanded: 248px;
+  --sn-bg: #ffffff;
+  --sn-hover: #f2f6e9;
+  --sn-active: #d9f65c;
+}
+
 @media (min-width: 900px) {
   .side-nav {
     position: fixed;
     left: 0; top: 0; bottom: 0;
-    width: 64px;                     /* ingeklapt: alleen iconen-breedte */
-    background: #fdfcf8;
-    border-right: 1px solid rgba(25,32,44,.08);
-    padding: 18px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    width: var(--sn-collapsed);
+    background: var(--sn-bg);
+    border-right: 1px solid rgba(25,32,44,.06);
+    padding: 22px 0;
+    display: flex; flex-direction: column; gap: 4px;
     overflow: hidden;
-    transition: width .25s ease;
+    transition: width .28s cubic-bezier(.4,0,.2,1);
     z-index: 100;
   }
-  /* uitklappen bij hover */
-  .side-nav:hover { width: 230px; box-shadow: 4px 0 24px rgba(0,0,0,.06); }
+  .side-nav:hover { width: var(--sn-expanded); box-shadow: 6px 0 28px rgba(25,32,44,.07); }
 
-  /* handmatige toggle (knop) */
-  .side-nav.open { width: 230px; }
-
+  /* logo: ingeklapt alleen het beeld, uitgeklapt + tekst */
   .side-nav .brand {
-    display: flex; align-items: center; gap: 10px;
-    padding: 6px 14px 18px; white-space: nowrap;
-    font-weight: 700; color: var(--ink); text-decoration: none;
-  }
-  .side-nav .brand img { width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; }
-  .side-nav .brand em { color: #f2673f; font-style: normal; opacity: 0; transition: opacity .2s .1s; }
-  .side-nav:hover .brand em, .side-nav.open .brand em { opacity: 1; }
-
-  .side-nav a.item {
     display: flex; align-items: center; gap: 12px;
-    padding: 10px 14px; margin: 0 8px; border-radius: 8px;
+    padding: 4px 18px 26px;
+    white-space: nowrap; text-decoration: none;
+  }
+  .side-nav .brand img { width: 34px; height: 34px; flex-shrink: 0; }
+  .side-nav .brand span {
+    font-size: 1.15em; color: var(--ink);
+    opacity: 0; transition: opacity .22s .12s;
+  }
+  .side-nav:hover .brand span, .side-nav.open .brand span { opacity: 1; }
+
+  /* items: lijn-icoontje (emoji omzeild via unicode symbols), strak */
+  .side-nav a.item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 11px 20px; margin: 1px 12px; border-radius: 0 8px 8px 0;
     color: var(--ink); text-decoration: none; white-space: nowrap;
     font-size: .95em;
+    border-left: 3px solid transparent;
+    transition: background .15s ease, border-color .15s ease;
   }
-  .side-nav a.item:hover { background: rgba(217,246,92,.35); }
-  .side-nav a.item[aria-current="page"] { background: rgba(217,246,92,.5); font-weight: 600; }
-  .side-nav .icoon { width: 22px; text-align: center; flex-shrink: 0; font-size: 1.05em; }
-  .side-nav .label { opacity: 0; transition: opacity .2s .1s; }
+  .side-nav a.item:hover { background: var(--sn-hover); }
+  .side-nav a.item[aria-current="page"] {
+    background: var(--sn-active);
+    border-left-color: #9ab52e;
+    font-weight: 600;
+  }
+  .side-nav .icoon {
+    width: 20px; text-align: center; flex-shrink: 0;
+    font-size: .95em; line-height: 1;
+    filter: grayscale(1) contrast(.9); opacity: .75;
+  }
+  .side-nav a.item:hover .icoon, .side-nav a.item[aria-current="page"] .icoon { filter: none; opacity: 1; }
+  .side-nav .label { opacity: 0; transition: opacity .22s .1s; }
   .side-nav:hover .label, .side-nav.open .label { opacity: 1; }
 
-  /* toggle-knop */
+  /* toggle-knop: onderaan, alleen zichtbaar op dit breedte-scenario */
   .side-toggle {
-    position: fixed; left: 8px; bottom: 12px; z-index: 101;
-    width: 36px; height: 36px; border-radius: 50%;
-    border: 1px solid rgba(25,32,44,.15); background: #fdfcf8;
+    position: fixed; left: 20px; bottom: 18px; z-index: 101;
+    width: 34px; height: 34px; border-radius: 8px;
+    border: 1px solid rgba(25,32,44,.12); background: var(--sn-bg);
     cursor: pointer; display: flex; align-items: center; justify-content: center;
-    font-size: 1em; color: var(--ink);
-    transition: left .25s ease;
+    color: var(--ink); font-size: .95em;
+    transition: left .28s cubic-bezier(.4,0,.2,1), opacity .2s;
+    opacity: .55;
   }
-  body.side-open .side-toggle { left: 194px; }
+  .side-toggle:hover { opacity: 1; }
+  body.side-open .side-toggle { left: calc(var(--sn-expanded) - 48px); }
 
-  /* content schuift mee */
-  body { padding-left: 64px; transition: padding-left .25s ease; }
-  body.side-open { padding-left: 230px; }
-  header.top-header { display: none; }   /* top-nav verdwijnt op desktop */
+  body { padding-left: var(--sn-collapsed); transition: padding-left .28s cubic-bezier(.4,0,.2,1); }
+  body.side-open { padding-left: var(--sn-expanded); }
+  header.top-header { display: none; }
 }
 
 @media (max-width: 899px) {
-  /* mobiel: zijmenu wordt slide-in, alleen via toggle */
   .side-nav {
-    position: fixed; left: 0; top: 0; bottom: 0; width: 230px;
-    background: #fdfcf8; border-right: 1px solid rgba(25,32,44,.08);
-    padding: 18px 0; display: flex; flex-direction: column; gap: 2px;
-    transform: translateX(-100%); transition: transform .25s ease; z-index: 100;
+    position: fixed; left: 0; top: 0; bottom: 0; width: var(--sn-expanded);
+    background: var(--sn-bg); border-right: 1px solid rgba(25,32,44,.06);
+    padding: 22px 0; display: flex; flex-direction: column; gap: 4px;
+    transform: translateX(-100%); transition: transform .28s cubic-bezier(.4,0,.2,1); z-index: 100;
   }
-  .side-nav.open { transform: translateX(0); box-shadow: 4px 0 24px rgba(0,0,0,.1); }
-  .side-nav .brand { display: flex; align-items: center; gap: 10px; padding: 6px 14px 18px; font-weight: 700; color: var(--ink); text-decoration: none; }
-  .side-nav .brand img { width: 30px; height: 30px; border-radius: 6px; }
-  .side-nav .brand em { color: #f2673f; font-style: normal; }
-  .side-nav a.item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; margin: 0 8px; border-radius: 8px; color: var(--ink); text-decoration: none; }
-  .side-nav a.item:hover { background: rgba(217,246,92,.35); }
-  .side-nav a.item[aria-current="page"] { background: rgba(217,246,92,.5); font-weight: 600; }
-  .side-nav .icoon { width: 22px; text-align: center; }
+  .side-nav.open { transform: translateX(0); box-shadow: 6px 0 28px rgba(25,32,44,.12); }
+  .side-nav .brand { display: flex; align-items: center; gap: 12px; padding: 4px 18px 26px; text-decoration: none; }
+  .side-nav .brand img { width: 34px; height: 34px; }
+  .side-nav .brand span { font-size: 1.15em; color: var(--ink); }
+  .side-nav a.item { display: flex; align-items: center; gap: 14px; padding: 11px 20px; margin: 1px 12px; border-radius: 0 8px 8px 0; color: var(--ink); text-decoration: none; border-left: 3px solid transparent; }
+  .side-nav a.item:hover { background: var(--sn-hover); }
+  .side-nav a.item[aria-current="page"] { background: var(--sn-active); border-left-color: #9ab52e; font-weight: 600; }
+  .side-nav .icoon { width: 20px; text-align: center; filter: grayscale(1) opacity(.75); }
+  .side-nav a.item[aria-current="page"] .icoon { filter: none; }
   .side-toggle {
-    position: fixed; left: 12px; top: 12px; z-index: 101;
-    width: 40px; height: 40px; border-radius: 8px;
-    border: 1px solid rgba(25,32,44,.15); background: #fdfcf8;
+    position: fixed; left: 14px; top: 14px; z-index: 101;
+    width: 38px; height: 38px; border-radius: 8px;
+    border: 1px solid rgba(25,32,44,.12); background: var(--sn-bg);
     display: flex; align-items: center; justify-content: center; cursor: pointer;
   }
-  body.side-open::after {  /* mobiel: dim-overlay */
-    content: ""; position: fixed; inset: 0; background: rgba(25,32,44,.4); z-index: 99;
-  }
+  body.side-open::after { content: ""; position: fixed; inset: 0; background: rgba(25,32,44,.4); z-index: 99; }
 }
