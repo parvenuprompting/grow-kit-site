@@ -51,7 +51,17 @@
 body { padding-left: 260px; }
 @media (max-width: 720px) {
   body { padding-left: 0; }
-  .side-nav { position: static; width: 100%; border-right: none; border-bottom: 1px solid rgba(25,32,44,.06); padding: 18px 0 12px; }
-  .side-nav .brand { justify-content: center; }
-  .side-nav a.item { margin: 2px 12px; }
+  .side-nav { position: static !important; width: 100%; flex-direction: row !important; flex-wrap: wrap; justify-content: center; row-gap: 4px; border-right: none; border-bottom: 1px solid rgba(25,32,44,.06); padding: 14px 0 10px; }
+  .side-nav .brand { justify-content: center; padding-bottom: 10px; width: 100%; }
+  /* mobiel: compact grid i.p.v. lange lijst — content zonder scroll bereikbaar */
+  .side-nav a.item {
+    flex: 0 1 calc(50% - 16px);
+    margin: 2px 8px;
+    padding: 9px 12px;
+    font-size: .95em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .side-nav .label { overflow: hidden; text-overflow: ellipsis; }
 }
