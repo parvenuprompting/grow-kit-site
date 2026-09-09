@@ -19,6 +19,7 @@
     padding: 22px 0;
     display: flex; flex-direction: column; gap: 4px;
     overflow: hidden;
+    white-space: nowrap;
     transition: width .28s cubic-bezier(.4,0,.2,1);
     z-index: 100;
   }
@@ -33,9 +34,10 @@
   .side-nav .brand img { width: 34px; height: 34px; flex-shrink: 0; }
   .side-nav .brand span {
     font-size: 1.15em; color: var(--ink);
-    opacity: 0; transition: opacity .22s .12s;
+    opacity: 0; visibility: hidden;
+    transition: opacity .22s .12s, visibility .22s .12s;
   }
-  .side-nav:hover .brand span, .side-nav.open .brand span { opacity: 1; }
+  .side-nav:hover .brand span, .side-nav.open .brand span { opacity: 1; visibility: visible; }
 
   /* items: lijn-icoontje (emoji omzeild via unicode symbols), strak */
   .side-nav a.item {
@@ -58,8 +60,11 @@
     filter: grayscale(1) contrast(.9); opacity: .75;
   }
   .side-nav a.item:hover .icoon, .side-nav a.item[aria-current="page"] .icoon { filter: none; opacity: 1; }
-  .side-nav .label { opacity: 0; transition: opacity .22s .1s; }
-  .side-nav:hover .label, .side-nav.open .label { opacity: 1; }
+  .side-nav .label {
+    opacity: 0; visibility: hidden;
+    transition: opacity .22s .1s, visibility .22s .1s;
+  }
+  .side-nav:hover .label, .side-nav.open .label { opacity: 1; visibility: visible; }
 
   /* toggle-knop: onderaan, alleen zichtbaar op dit breedte-scenario */
   .side-toggle {
