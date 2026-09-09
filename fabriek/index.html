@@ -6,26 +6,20 @@
 <title>De Fabriek — hoe de agent-familie werkt — Grow Kit</title>
 <meta name="description" content="Achter de schermen van de Grow Kit agent-familie: hoe agents worden geboren, bewezen, herinnerd en geflitst — een kijkje in de fabriek van de toekomst.">
 <link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../css/side-nav.css">
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="../">Grow <em>Kit</em></a>
-    <nav aria-label="Hoofdmenu">
-      <ul>
-        <li><a href="../">Index</a></li>
-        <li><a href="../hoe-het-werkt/">Hoe het werkt</a></li>
-        <li><a href="../familie/">De agent-familie</a></li>
-        <li><a href="./" aria-current="page">De fabriek</a></li>
-        <li><a href="../dagboek/">Dagboek</a></li>
-        <li><a href="../familie/kenji-moppen/">Kenji-moppen</a></li>
-        <li><a href="https://github.com/parvenuprompting/Grow-Kit">GitHub</a></li>
-        <li><a href="https://x.com/GrowKitHarnas">𝕏</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<nav class="side-nav" id="side-nav" aria-label="Hoofdmenu">
+<a class="brand" href=".."><img src="..assets/logo.png" alt=""><span>Grow <em>Kit</em></span></a>
+<a class="item" href="..Index"><span class="icoon">🏠</span><span class="label">Index</span></a>
+<a class="item" href="..hoe-het-werkt/"><span class="icoon">⚙️</span><span class="label">Hoe het werkt</span></a>
+<a class="item" href="..familie/"><span class="icoon">👥</span><span class="label">De agent-familie</span></a>
+<a class="item" aria-current="page" href="..fabriek/"><span class="icoon">🏭</span><span class="label">De fabriek</span></a>
+<a class="item" href="..kenji-moppen/"><span class="icoon">🐍</span><span class="label">Kenji-moppen</span></a>
+<a class="item" href="..dagboek/"><span class="icoon">📖</span><span class="label">Dagboek</span></a>
+</nav>
+<button class="side-toggle" id="side-toggle" aria-label="Menu openen/sluiten">☰</button>
 
 <main class="wrap">
   <section class="hero">
@@ -84,5 +78,6 @@
     <p>Grow Kit — <em>GROW</em> = Governed Reproducible Operational Workflow. MIT-licentie. Geen tracking, geen cookies, self-hosted fonts. Volg ons op <a href="https://x.com/GrowKitHarnas">𝕏 @GrowKitHarnas</a>.</p>
   </div>
 </footer>
+<script src="../css/side-nav.js"></script>
 </body>
 </html>
