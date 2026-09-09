@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../css/style.css">
 <style>
 /* Agent-galerij + popup (KairOS, 9 sept) */
-.agent-foto { width: 100%; border-radius: 10px 10px 0 0; display: block; aspect-ratio: 4/5; object-fit: cover; }
+.agent-foto { width: 100%; border-radius: 10px 10px 0 0; display: block; aspect-ratio: 3/2; object-fit: cover; }
 .agent.klikbaar { cursor: pointer; transition: transform .15s ease, box-shadow .15s ease; }
 .agent.klikbaar:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
 .agent h3 a { color: inherit; text-decoration: none; }
@@ -21,7 +21,7 @@
 .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(25,32,44,.6); z-index: 50; align-items: flex-start; justify-content: center; padding: 4vh 1em; overflow-y: auto; }
 .popup-overlay.open { display: flex; }
 .popup { background: #fdfcf8; max-width: 620px; width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.3); position: relative; }
-.popup img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+.popup img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; }
 .popup .inhoud { padding: 1.5em 1.8em 2em; }
 .popup .inhoud h2 { margin: 0 0 .1em; font-size: 1.6em; }
 .popup .rol { color: #f2673f; font-weight: 600; margin: 0 0 1em; }
@@ -111,6 +111,7 @@
     <p class="lede">Elk met een eigen domein. Ze wonen hier, ze werken hier.</p>
     <div class="familie">
       <div class="agent klikbaar" data-agent="nunu">
+        <img class="agent-foto" src="agenten/nunu.jpg" alt="NuNu - big sister, GrowKit-bureau">
         <h3><a href="#agent=nunu">NuNu</a></h3>
         <p class="rol">Big sister &amp; onderzoek</p>
         <p>Drive-register, onderzoekslbog, tweede blik op ontwerpen.</p>
@@ -158,6 +159,11 @@
         <p class="stem">Jong, leergierig, structuur-hongerig.</p>
       </div>
     </div>
+  </section>
+  <section class="overig">
+    <h2>PBD — Parvenu Body Development</h2>
+    <p class="lede">"The human body isn't the limit. It's the platform." — het menselijke zusterproject van de fabriek.</p>
+    <img src="../assets/pbd-campus.jpg" alt="PBD Main Campus Amsterdam - Parvenu Body Development" style="width:100%;border-radius:12px;display:block;">
   </section>
 </main>
 
@@ -316,7 +322,9 @@ const LORE = {
       ["Stem", "Kalm, warm, scherp. Stelt één vraag per keer en luistert naar het antwoord. Geen vulling, geen clichés."],
       ["Bewijs", "Heeft een eigen privé-brein en een vaste loop: belief benoemen, pay-off vinden, gevoel checken, herschrijven als keuze, kleinste actie."],
       ["Wet", "Een belief is geen waarheid — het is een definitie die je houdt tot je hem laat gaan."]
-    ]
+    ],
+    afbeelding: "groei/yasmina-lore.jpg",
+    afbeelding_alt: "Yasmina - volledige HUD met haar vijf-stappen loop en bronnen (Seth, Bashar, Abraham-Hicks)"
   },
   kenji: {
     naam: "Kenji",
