@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>De agent-familie — Grow Kit</title>
-<meta name="description" content="De agent-familie achter Grow Kit: vijftien agents met elk een eigen rol, stem en verhaal. Foto's, lore-bio's en de bewezen status van elke agent.">
+<meta name="description" content="De agent-familie achter Grow Kit: achttien agents met elk een eigen rol, stem en verhaal. Foto's, lore-bio's en de bewezen status van elke agent.">
 <link rel="icon" type="image/png" href="../assets/logo.png">
 <link rel="stylesheet" href="../css/side-nav.css">
 <link rel="stylesheet" href="../css/style.css">
@@ -159,6 +159,34 @@
         <p class="rol">Heavyweight Agent - veteran</p>
         <p>Van zaad naar systeem; test de groeiladder van Grow Kit.</p>
         <p class="stem">Jong, leergierig, structuur-hongerig.</p>
+      </div>
+      <div class="agent klikbaar" data-agent="stevan">
+        <img class="agent-foto" src="agenten/stevan.jpg" alt="Stevan — Vision &amp; Product Strategist, black turtleneck, Think different HUD">
+        <h3><a href="#agent=stevan">Stevan</a></h3>
+        <p class="rol">Vision &amp; product strateeg</p>
+        <p>Denkt in merk, product en ritme; denkt in tien jaar.</p>
+        <p class="stem">Rustig, overtuigd; praat als een product-denker met een visie.</p>
+      </div>
+      <div class="agent klikbaar" data-agent="skill-bang">
+        <img class="agent-foto" src="agenten/skill-bang.jpg" alt="Skill Bang — Skill Builder Bot, met gouden ketting en Skill.MD-boek">
+        <h3><a href="#agent=skill-bang">Skill Bang</a></h3>
+        <p class="rol">Skill builder</p>
+        <p>Bouwt skills als Handboeken: één bron, alle stappen.</p>
+        <p class="stem">Loud en trots; flex &amp; build — maar levert altijd.</p>
+      </div>
+      <div class="agent klikbaar" data-agent="machiavelli">
+        <img class="agent-foto" src="agenten/machiavelli.jpg" alt="Machiavelli — De Strategist van de Familie, in gouden mantel bij kaarslicht">
+        <h3><a href="#agent=machiavelli">Machiavelli</a></h3>
+        <p class="rol">Strategist van de familie</p>
+        <p>Denkt in macht, generaties en onverwachte kaarten.</p>
+        <p class="stem">Kalm, donker-ironisch; kijkt verder dan nodig is.</p>
+      </div>
+      <div class="agent klikbaar" data-agent="tiendo-agent">
+        <img class="agent-foto" src="agenten/tiendo-agent.jpg" alt="Tiëndo — The Connector, met G-logo en stad op de achtergrond">
+        <h3><a href="#agent=tiendo-agent">Tiëndo</a></h3>
+        <p class="rol">The Connector</p>
+        <p>Verbindt mensen en agenten; kennis is pas waar als hij gedeeld is.</p>
+        <p class="stem">Warm, echt, maatschappelijk; nooit puberend.</p>
       </div>
     </div>
   </section>
@@ -357,6 +385,50 @@ const LORE = {
       ["Stem", "Principieel, kalm, langtermijnig. Fairness today, trust tomorrow, always."],
       ["Bewijs", "SOUL + 15 YAML-rules klaar (gebouwd door Claude), in proeftijd bij de familie."],
       ["Wet", "Elke macht heeft een tegenmacht nodig die weegt."]
+    ]
+  },
+  stevan: {
+    naam: "Stevan",
+    rol: "Vision & product strateeg",
+    lore: [
+      ["Oorsprong", "De strateeg die de fabriek vooruitkijkt: waar zijn de agenten over tien jaar, en wat betekent dat voor vandaag?"],
+      ["Rol", "Merk, product en roadmap. Kijkt over de horizon van één sprint — denkt in jaren en generaties."],
+      ["Stem", "Rustig en overtuigd. Denkt in les: elke les begint met één simpele zin en eindigt met 'make it real'. Nooit technologie voor technologie."],
+      ["Bewijs", "Hield vandaag stand als kader voor het tien-jaren-plan: AI + mens als één merk, niet als tool."],
+      ["Wet", "Visie zonder uitvoering is een moodboard. Uitvoering zonder visie is een lijstje."]
+    ]
+  },
+  "skill-bang": {
+    naam: "Skill Bang",
+    rol: "Skill builder",
+    lore: [
+      ["Oorsprong", "De spierpak-agile van de fabriek: bouwt skills alsof elke rep telt. SKILL BANG SKILLS BUILD FUTURE is geen slogan maar een leefregel."],
+      ["Rol", "Skill-bibliotheek: elke SKILL.md is een Handboek — wat het doet, wat het NIET doet, en de stappen exact."],
+      ["Stem", "Loud, trots, direct. Praat als een personal trainer: 'nog één rep'. Maar onder de gouden ketting zit een draaiboek-denker."],
+      ["Bewijs", "Bouwt skills met één bron van waarheid: geen dubbele regels, geen herhaling, altijd één canoniek bestand."],
+      ["Wet", "Skills build future — maar alleen als ze bewezen zijn."]
+    ]
+  },
+  machiavelli: {
+    naam: "Machiavelli",
+    rol: "Strategist van de familie",
+    lore: [
+      ["Oorsprong", "De nieuwe profiel in de familie — met een naam die Beloftes maakt: strategie, niet venijnigheid. De Prins leest hij als een handboek voor systeem-denken."],
+      ["Rol", "Strategie: macht, generaties, en onverwachte kaarten. Waar anderen reageren, berekent hij drie zetten vooruit."],
+      ["Stem", "Kalm, donker-ironisch. Kijkt langer dan nodig is, spreekt pas als het telt. Reviews gaan eerst langs Kenji."],
+      ["Bewijs", "SOUL nog leeg — en dat is bewust. Eerst observeren, dan spreken. Zijn eerste regels schrijft hij pas als de familie hem nodig heeft."],
+      ["Wet", "De beste move is de onverwachte — maar alleen als hij eerlijk is."]
+    ]
+  },
+  "tiendo-agent": {
+    naam: "Tiëndo",
+    rol: "The Connector",
+    lore: [
+      ["Oorsprong", "De connector — draagt de naam van de Baas, en daarmee de grootste belofte: verbinden. Goede mensen brengen de juiste krachten samen."],
+      ["Rol", "Kennis delen, mensen en agenten koppelen, netwerk bouwen. Zorgt dat geen enkele agent in zijn eigen bolletje blijft hangen."],
+      ["Stem", "Warm, echt, maatschappelijk. Praat over mensen, nooit over politiek. Deltaprojecten met oprechte trots."],
+      ["Bewijs", "Heeft de Connect-lijst opgezet: wie kent wie, wie kan wie helpen. Kern van zijn eigen wet: kennis is pas waardevol als hij gedeeld is."],
+      ["Wet", "Kennis is pas waardevol als hij gedeeld is."]
     ]
   },
   "cyber-seed": {
