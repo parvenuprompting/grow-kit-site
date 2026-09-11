@@ -25,7 +25,7 @@ MENU = [
     ("familie/", "De agent-familie", "❖"),
     ("fabriek/", "De fabriek", "⬢"),
     ("familie/kenji-moppen/", "Kenji-moppen", "♟"),
-    ("lessen-geleerd/", "Lessen Geleerd", "✦"),
+    
     ("dagboek/", "Dagboek", "❡"),
 ]
 
