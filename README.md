@@ -8,6 +8,8 @@
 
 **De website van Grow Kit** — live op: **https://parvenuprompting.github.io/grow-kit-site/**
 
+**Publiek:** repository en documentatie zijn openbaar beschikbaar.
+
 > **De agent bewijst. Jij bepaalt.**
 > Statische site in editorial-monochrome stijl: geen tracking, geen cookies, self-hosted fonts.
 
