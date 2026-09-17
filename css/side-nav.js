@@ -1,47 +1,50 @@
-// Zijmenu logic — GrowKit-app-stijl: hover-uitklap (desktop) + handmatige toggle + mobiel slide-in.
-(function () {
-  function init() {
-    const nav = document.getElementById('side-nav');
-    const toggle = document.getElementById('side-toggle');
-    if (!nav || !toggle) return;
+// Mobiele navigatie drawer handler voor Grow Kit
+(function() {
+  function initMobileNav() {
+    const sideNav = document.getElementById('side-nav');
+    const openBtn = document.getElementById('mobileMenuBtn');
+    const closeBtn = document.getElementById('sideNavCloseBtn');
+    const overlay = document.getElementById('sideNavOverlay');
 
-    // handmatige toggle
-    toggle.addEventListener('click', function () {
-      const open = nav.classList.toggle('open');
-      document.body.classList.toggle('side-open', open);
-      try { localStorage.setItem('sidenav-open', open ? '1' : '0'); } catch (e) {}
-    });
+    if (!sideNav) return;
 
-    // staat bewaren tussen paginaladen
-    try {
-      if (localStorage.getItem('sidenav-open') === '1') {
-        nav.classList.add('open');
-        document.body.classList.add('side-open');
-      }
-    } catch (e) {}
-
-    // mobiel: klik buiten het menu sluit het
-    if (window.matchMedia('(max-width: 899px)').matches) {
-      document.addEventListener('click', function (e) {
-        if (document.body.classList.contains('side-open')
-            && !nav.contains(e.target) && !toggle.contains(e.target)) {
-          nav.classList.remove('open');
-          document.body.classList.remove('side-open');
-          try { localStorage.setItem('sidenav-open', '0'); } catch (err) {}
-        }
-      });
+    function openNav() {
+      sideNav.classList.add('is-open');
+      if (overlay) overlay.classList.add('is-active');
+      document.body.style.overflow = 'hidden'; // voorkom scrollen achter drawer
     }
 
-    // Escape sluit ook
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && nav.classList.contains('open')) {
-        nav.classList.remove('open');
-        document.body.classList.remove('side-open');
-        try { localStorage.setItem('sidenav-open', '0'); } catch (err) {}
+    function closeNav() {
+      sideNav.classList.remove('is-open');
+      if (overlay) overlay.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openNav);
+    if (closeBtn) closeBtn.addEventListener('click', closeNav);
+    if (overlay) overlay.addEventListener('click', closeNav);
+
+    // Escape toets sluit het menu
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && sideNav.classList.contains('is-open')) {
+        closeNav();
       }
     });
+
+    // Sluit bij klik op menu item op mobiel
+    const navItems = sideNav.querySelectorAll('a.item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        if (window.innerWidth <= 840) {
+          closeNav();
+        }
+      });
+    });
   }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
+    document.addEventListener('DOMContentLoaded', initMobileNav);
+  } else {
+    initMobileNav();
+  }
 })();

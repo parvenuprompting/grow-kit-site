@@ -1,9 +1,15 @@
-/* ── Zijmenu v3: altijd open, geen inklapfunctie. Actief = logo-groen (#16663F). ── */
+/* ── Zijmenu v4: Desktop vast zijmenu; Mobiel strakke header + slide-in drawer ── */
 
 :root {
   --sn-bg: #ffffff;
   --sn-hover: #eef4ea;
+  --sn-active: #e6f0e0;
   --sn-groen: #16663F;
+}
+
+/* DESKTOP (standaard) */
+.mobile-header {
+  display: none;
 }
 
 .side-nav {
@@ -15,6 +21,7 @@
   padding: 26px 0 20px;
   display: flex; flex-direction: column; gap: 2px;
   z-index: 100;
+  transition: transform .25s ease;
 }
 
 .side-nav .brand {
@@ -48,20 +55,157 @@
 }
 .side-nav a.item:hover .icoon, .side-nav a.item[aria-current="page"] .icoon { opacity: 1; }
 
+.side-nav-close {
+  display: none;
+}
+
+.side-nav-overlay {
+  display: none;
+}
+
 body { padding-left: 260px; }
-@media (max-width: 720px) {
-  body { padding-left: 0; }
-  .side-nav { position: static !important; width: 100%; flex-direction: row !important; flex-wrap: wrap; justify-content: center; row-gap: 4px; border-right: none; border-bottom: 1px solid rgba(25,32,44,.06); padding: 14px 0 10px; }
-  .side-nav .brand { justify-content: center; padding-bottom: 10px; width: 100%; }
-  /* mobiel: compact grid i.p.v. lange lijst — content zonder scroll bereikbaar */
-  .side-nav a.item {
-    flex: 0 1 calc(50% - 16px);
-    margin: 2px 8px;
-    padding: 9px 12px;
-    font-size: .95em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+/* ── MOBIEL (<= 840px) ── */
+@media (max-width: 840px) {
+  body { 
+    padding-left: 0 !important; 
+    padding-top: 64px !important; 
   }
-  .side-nav .label { overflow: hidden; text-overflow: ellipsis; }
+
+  /* Vaste mobiele topbalk */
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 64px;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(25,32,44,.08);
+    padding: 0 18px;
+    z-index: 150;
+    box-shadow: 0 2px 10px rgba(0,0,0,.03);
+  }
+
+  .mobile-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .mobile-header .brand img {
+    width: 34px; height: 34px;
+  }
+  .mobile-header .brand span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .mobile-header .brand em {
+    color: var(--sn-groen);
+    font-style: italic;
+  }
+
+  /* Hamburger toggle button */
+  .hamburger-btn {
+    background: none;
+    border: none;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--ink);
+    border-radius: 8px;
+    transition: background .15s;
+  }
+  .hamburger-btn:active {
+    background: var(--sn-hover);
+  }
+
+  /* Side-nav wordt een vloeiende slide-in lade */
+  .side-nav {
+    position: fixed !important;
+    top: 0; bottom: 0; left: 0;
+    width: 280px;
+    max-width: 85vw;
+    background: #ffffff;
+    z-index: 200;
+    box-shadow: 4px 0 24px rgba(0,0,0,.15);
+    transform: translateX(-100%);
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 16px 0 24px;
+    border-right: 1px solid rgba(25,32,44,.08);
+  }
+
+  .side-nav.is-open {
+    transform: translateX(0);
+  }
+
+  /* Bovenste rij van drawer: logo + sluitknop */
+  .side-nav .drawer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 18px 18px;
+    border-bottom: 1px solid rgba(25,32,44,.06);
+    margin-bottom: 12px;
+  }
+
+  .side-nav .brand {
+    padding: 0;
+  }
+
+  .side-nav-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 1.3rem;
+  }
+  .side-nav-close:active {
+    background: var(--sn-hover);
+    color: var(--ink);
+  }
+
+  /* Links in mobiele lade: ruim, 44px touch targets, geen afkapping */
+  .side-nav a.item {
+    flex: none !important;
+    margin: 3px 12px !important;
+    padding: 12px 18px !important;
+    font-size: 1.02rem !important;
+    white-space: normal !important;
+    border-radius: 8px;
+  }
+
+  .side-nav .label {
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+
+  /* Donkere achtergrond overlay */
+  .side-nav-overlay {
+    display: block;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(13,12,16,.45);
+    backdrop-filter: blur(3px);
+    z-index: 190;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+
+  .side-nav-overlay.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }

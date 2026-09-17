@@ -20,16 +20,28 @@
   </style>
 </head>
 <body>
+<header class="mobile-header">
+  <a class="brand" href="../../"><img src="../../assets/logo.png" alt="Grow Kit"><span>Grow <em>Kit</em></span></a>
+  <button type="button" class="hamburger-btn" id="mobileMenuBtn" aria-label="Menu openen">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+    </svg>
+  </button>
+</header>
+<div class="side-nav-overlay" id="sideNavOverlay"></div>
 <nav class="side-nav" id="side-nav" aria-label="Hoofdmenu">
-<a class="brand" href="../../"><img src="../../assets/logo.png" alt="Grow Kit"><span class="brand-tekst">Grow <em>Kit</em></span></a>
-<a class="item" href="../../"><span class="icoon">⌂</span><span class="label">Index</span></a>
-<a class="item" href="../../hoe-het-werkt/"><span class="icoon">⚙</span><span class="label">Hoe het werkt</span></a>
-<a class="item" href="../../familie/"><span class="icoon">❖</span><span class="label">De agent-familie</span></a>
-<a class="item" href="../../cyberseed/"><span class="icoon">🧬</span><span class="label">CyberSeed AI 🌱</span></a>
-<a class="item" href="../../watch-bpd/"><span class="icoon">♡</span><span class="label">Watch-BPD ⌚</span></a>
-<a class="item" aria-current="page" href="../../fabriek/"><span class="icoon">⬢</span><span class="label">De fabriek</span></a>
-<a class="item" href="../../familie/kenji-moppen/"><span class="icoon">♟</span><span class="label">Kenji-moppen</span></a>
-<a class="item" href="../../dagboek/"><span class="icoon">❡</span><span class="label">Dagboek</span></a>
+  <div class="drawer-top">
+    <a class="brand" href="../../"><img src="../../assets/logo.png" alt="Grow Kit"><span>Grow <em>Kit</em></span></a>
+    <button type="button" class="side-nav-close" id="sideNavCloseBtn" aria-label="Menu sluiten">✕</button>
+  </div>
+  <a class="item" href="../../"><span class="icoon">⌂</span><span class="label">Index</span></a>
+  <a class="item" href="../../hoe-het-werkt/"><span class="icoon">⚙</span><span class="label">Hoe het werkt</span></a>
+  <a class="item" href="../../familie/"><span class="icoon">❖</span><span class="label">De agent-familie</span></a>
+  <a class="item" href="../../cyberseed/"><span class="icoon">🧬</span><span class="label">CyberSeed AI 🌱</span></a>
+  <a class="item" href="../../watch-bpd/"><span class="icoon">♡</span><span class="label">Watch-BPD ⌚</span></a>
+  <a class="item" aria-current="page" href="../../fabriek/"><span class="icoon">⬢</span><span class="label">De fabriek</span></a>
+  <a class="item" href="../../familie/kenji-moppen/"><span class="icoon">♟</span><span class="label">Kenji-moppen</span></a>
+  <a class="item" href="../../dagboek/"><span class="icoon">❡</span><span class="label">Dagboek</span></a>
 </nav>
   <div class="signaal-wrap">
     <h1>Phase 0-signaalbord</h1>
@@ -86,5 +98,6 @@
       });
     })();
   </script>
+<script src="../../css/side-nav.js"></script>
 </body>
 </html>
