@@ -2,7 +2,7 @@
 
 [![Pages](https://github.com/parvenuprompting/grow-kit-site/actions/workflows/pages.yml/badge.svg)](https://github.com/parvenuprompting/grow-kit-site/actions/workflows/pages.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/parvenuprompting/Grow-Kit/blob/main/LICENSE)
-[![Agents: 20+](https://img.shields.io/badge/agents-20%2B_actief-gold?style=flat-square)]()
+[![Agents: 30+](https://img.shields.io/badge/agents-30%2B_actief-gold?style=flat-square)]()
 [![Model: CyberSeed Sprout](https://img.shields.io/badge/model-CyberSeed_Sprout_v1-green?style=flat-square)]()
 [![WatchOS: BPD v0.1](https://img.shields.io/badge/watchOS-BPD_v0.1-orange?style=flat-square)]()
 [![Zero-Trust: 546 Tests](https://img.shields.io/badge/zero--trust-546_passing-success?style=flat-square)]()
@@ -24,7 +24,7 @@
 
 De publieke voorkant van [Grow Kit](https://github.com/parvenuprompting/Grow-Kit), de zero-trust AI-werkbank en het agent-harnas ontworpen door Tiëndo Welles. 
 
-Deze site legt in heldere stappen uit hoe het harnas werkt (idee → scope-poort → agent met bewijs → ratificatie), stelt de agent-familie voor (twintig+ agents, elk met eigen rol en stem), documenteert onze soevereine AI-modellen (**CyberSeed**), de hardware-interactie aan de pols (**Watch-BPD**), en linkt rechtstreeks naar onze open-source codebases.
+Deze site legt in heldere stappen uit hoe het harnas werkt (idee → scope-poort → agent met bewijs → ratificatie), stelt de agent-familie voor (dertig+ agents, elk met eigen rol en stem), documenteert onze soevereine AI-modellen (**CyberSeed**), de hardware-interactie aan de pols (**Watch-BPD**), en linkt rechtstreeks naar onze open-source codebases.
 
 ---
 
@@ -34,7 +34,7 @@ Deze site legt in heldere stappen uit hoe het harnas werkt (idee → scope-poort
 |---|---|---|
 | **Index** | `index.html` | Hero, de vijf wetten als kaarten, actuele innovaties, install-blok met kopieerknop |
 | **Hoe het werkt** | `hoe-het-werkt/` | De vier stappen + crash-herstel (test 4) + zero-trust discipline |
-| **De agent-familie** | `familie/` | Twintig+ agents met foto, rol, stem en bewezen domeinen |
+| **De agent-familie** | `familie/` | Dertig+ agents met foto, rol, stem en bewezen domeinen |
 | **CyberSeed AI 🌱** | `cyberseed/` | Soevereine lokale LLM-training (Sprout v1 op Apple Silicon Metal), 5-traps evolutieladder |
 | **Watch-BPD ⌚** | `watch-bpd/` | Hart-fase-0 aan de pols van de Maker (SwiftUI, faster-whisper, NuNu stem in 7,2s) |
 | **De fabriek** | `fabriek/` | De autonome softwarefabriek (P.A.C.), loops en statusmonitoring |
