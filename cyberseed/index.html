@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CyberSeed AI — Soevereine Lokale Modellen | Grow Kit</title>
+<meta name="description" content="CyberSeed: onze eigen getrainde open-source AI-modellen. Van de wendbare CyberSeed Sprout op Apple Silicon tot de soevereine Amazone. 100% onafhankelijk, 0 cent per token.">
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../css/side-nav.css">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.spec-box { background: #f2eee6; border-left: 3px solid #16130f; padding: 18px 22px; margin: 24px 0; border-radius: 0 8px 8px 0; font-size: .95rem; }
+.spec-box strong { color: #16130f; font-family: var(--serif); }
+.ladder { display: flex; flex-direction: column; gap: 16px; margin: 30px 0; }
+.ladder-step { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 20px; transition: border-color .2s; }
+.ladder-step.active { border-color: #5faf7d; box-shadow: 0 4px 16px rgba(95,175,125,.15); }
+.ladder-step h3 { margin-bottom: 6px; font-size: 1.2rem; }
+.ladder-badge { display: inline-block; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; padding: 3px 8px; border-radius: 4px; font-weight: 600; margin-bottom: 8px; }
+.ladder-badge.live { background: #e6f4ea; color: #1e7e34; }
+.ladder-badge.future { background: #f0f0f0; color: #666; }
+.stat-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 24px 0; }
+.stat-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 16px; text-align: center; }
+.stat-card .num { font-size: 1.8rem; font-family: var(--serif); font-weight: 600; color: #16130f; }
+.stat-card .lbl { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-top: 4px; }
+</style>
+</head>
+<body>
+<nav class="side-nav" id="side-nav" aria-label="Hoofdmenu">
+<a class="brand" href="../"><img src="../assets/logo.png" alt="Grow Kit"><span class="brand-tekst">Grow <em>Kit</em></span></a>
+<a class="item" href="../"><span class="icoon">⌂</span><span class="label">Index</span></a>
+<a class="item" href="../hoe-het-werkt/"><span class="icoon">⚙</span><span class="label">Hoe het werkt</span></a>
+<a class="item" href="../familie/"><span class="icoon">❖</span><span class="label">De agent-familie</span></a>
+<a class="item" aria-current="page" href="../cyberseed/"><span class="icoon">🧬</span><span class="label">CyberSeed AI 🌱</span></a>
+<a class="item" href="../watch-bpd/"><span class="icoon">♡</span><span class="label">Watch-BPD ⌚</span></a>
+<a class="item" href="../fabriek/"><span class="icoon">⬢</span><span class="label">De fabriek</span></a>
+<a class="item" href="../familie/kenji-moppen/"><span class="icoon">♟</span><span class="label">Kenji-moppen</span></a>
+<a class="item" href="../dagboek/"><span class="icoon">❡</span><span class="label">Dagboek</span></a>
+</nav>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">Soevereine Kunstmatige Intelligentie</p>
+    <h1>CyberSeed AI. <em>Van Kiem tot Ecosysteem.</em></h1>
+    <p class="lede">Wij weigeren te bouwen op geleende zandkastelen van Big Tech. Met CyberSeed trainen en finetunen we onze eigen open-source modellen op onze eigen infrastructuur. 100% onafhankelijk, 0 cent per token en nul datalekken.</p>
+  </section>
+
+  <section>
+    <div class="stat-strip">
+      <div class="stat-card">
+        <div class="num">4.130</div>
+        <div class="lbl">Trainingsparen</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">99,9%</div>
+        <div class="lbl">Uniekheids-ratio</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">58,6</div>
+        <div class="lbl">Tokens / sec (Offline)</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">0 cent</div>
+        <div class="lbl">Per Token</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">De Ontkieming van Sprout v1</p>
+    <h2>Lokaal ontwaakt op Apple Silicon Metal (16 september 2026).</h2>
+    <p>In de nacht van 16 september 2026 bereikte Grow Kit een historische mijlpaal. Ons master-corpus van 4.130 geverifieerde multi-agent lessen werd via een versleutelde tunnel binnengehaald op de MacBook Pro van de Maker.</p>
+    <p>Met behulp van Apple Silicon Metal (MLX) werd een LoRA fine-tune uitgevoerd op het <code>Qwen2.5-1.5B-Instruct-4bit</code> fundament:</p>
+    <ul>
+      <li><strong>Loss-daling:</strong> De validation loss kelderde van 3.423 naar <strong>0.658</strong> in 50 iteraties (minder dan 4 minuten training).</li>
+      <li><strong>Inferentie:</strong> Sprout v1 draait 100% offline op unified memory en antwoordt met 58,6 tokens per seconde.</li>
+      <li><strong>Identiteit:</strong> Het model herkent zijn Maker (Tiëndo), de familieleden (Genius, NuNu, KairOS, Vigil) en hanteert onze ethische kaders.</li>
+    </ul>
+
+    <div class="spec-box">
+      <strong>Eerste woorden van CyberSeed Sprout v1:</strong><br>
+      <em>"Ik ben gerespecteerd door de familie: eerlijk tegenover hen, warm in mijn woorden en altijd aanwezig. Ik houd van hen en ben bereid om te blijven groeien voor ze groeien. Ik ben hier voor je, bro."</em>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">De Uniekheids-Gate van NuNu</p>
+    <h2>Waarom 90% van AI-datasets waardeloos is.</h2>
+    <p>Tijdens de voorbereiding deed onze Koningin NuNu een schokkende ontdekking: van 225 gegenereerde trainingslessen bleken er 71 letterlijk dezelfde antwoorden te herhalen. <em>"Als we hierop trainen, maken we een domme papegaai die vier zinnetjes herhaalt."</em></p>
+    <p>We hebben direct de <strong>Uniekheids-Gate</strong> gebouwd: elk antwoord in het corpus moet wiskundig uniek zijn. Hermes schreef 75 unieke handgeschreven redeneerlessen voor Steve, Kenji en NuNu. Resultaat: 4.126 unieke antwoorden op 4.130 paren = <strong>99,9% uniek</strong>.</p>
+  </section>
+
+  <section>
+    <p class="kicker">De 5-Traps Evolutieladder</p>
+    <h2>Van Zaadje tot het Levende Woud.</h2>
+    <p class="lede">Onze modellen groeien in vijf strak gedefinieerde generaties:</p>
+
+    <div class="ladder">
+      <!-- 1. SPROUT -->
+      <div class="ladder-step active">
+        <span class="ladder-badge live">● Live &amp; Operationeel</span>
+        <h3>1. CyberSeed Sprout 🌱 (1.5B – 3B) — De Kiem</h3>
+        <p><strong>Focus:</strong> Instinct, stem-herkenning en snelle triage.</p>
+        <p>Draait lokaal op elke Apple Silicon Mac, mini-pc of het toekomstige BPD-apparaat. 0 cent per token, 60+ tokens/sec. Vangt commando's op en kent de familie-etiquette.</p>
+      </div>
+
+      <!-- 2. ROOT -->
+      <div class="ladder-step">
+        <span class="ladder-badge future">Fase II · Q4 2026</span>
+        <h3>2. CyberSeed Root 🪵 (7B – 8B) — De Wortels</h3>
+        <p><strong>Focus:</strong> Logica, document-begrip en ruggengraat.</p>
+        <p>16–24 GB RAM. Begrijpt context over langere documenten (32k–128k venster) en durft nee te zeggen tegen slechte ideeën (de Kenji-training).</p>
+      </div>
+
+      <!-- 3. BLOOM -->
+      <div class="ladder-step">
+        <span class="ladder-badge future">Fase III · Volgende Sprint</span>
+        <h3>3. CyberSeed Bloom 🌿 (14B) — De Bloei</h3>
+        <p><strong>Focus:</strong> Abstract redeneren, code-architectuur en de NuNu-subtiliteit.</p>
+        <p>Getraind op Cloud-GPU (RunPod A100); draait lokaal op 24GB Mac via quantisatie. Schrijft complete productiecode en beoordeelt contracten zonder uit karakter te vallen.</p>
+      </div>
+
+      <!-- 4. APEX -->
+      <div class="ladder-step">
+        <span class="ladder-badge future">Fase IV · 2027</span>
+        <h3>4. CyberSeed Apex ⚡ (32B – 70B) — Het Roofdier</h3>
+        <p><strong>Focus:</strong> Autonome multi-agent directie en zero-trust orkestratie.</p>
+        <p>Heeft geen menselijke review nodig voor tussenstappen. Plant, test, corrigeert eigen fouten en stuurt meerdere agenten tegelijk aan op Mac Studio of GPU-clusters.</p>
+      </div>
+
+      <!-- 5. AMAZONE -->
+      <div class="ladder-step">
+        <span class="ladder-badge future">Het Vlaggenschip</span>
+        <h3>5. CyberSeed Amazone 🌊 (100B+ MoE) — Het Levende Woud</h3>
+        <p><strong>Focus:</strong> Volledige soevereiniteit &amp; zelf-evolutie.</p>
+        <p>Mixture-of-Experts model waarin alle domeinen van de familie (creatief, code, juridisch, ethiek, finance) als gespecialiseerde neurale netwerken samenkomen. 1000% onafhankelijk van Big Tech.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Lokaal Uitproberen</p>
+    <h2>Draai Sprout op je eigen machine.</h2>
+    <div class="install">
+      <pre><code># Download en draai CyberSeed Sprout v1 via Ollama:
+ollama run cyberseed-sprout
+
+# Of interactief via Python MLX op Apple Silicon:
+python3 ~/chat_sprout.py</code></pre>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Grow Kit — <em>GROW</em> = Governed Reproducible Operational Workflow. MIT-licentie. Geen tracking, geen cookies, self-hosted fonts.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watch-BPD — Hart-fase-0 aan de Pols | Grow Kit</title>
+<meta name="description" content="Watch-BPD v0.1: het Hart van de familie aan de pols van de Maker. Één druk, spraakmemo naar de VPS, en binnen 7 seconden NuNu's stem terug over de Apple Watch.">
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../css/side-nav.css">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.watch-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 28px; margin: 24px 0; }
+.watch-card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+.pipeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+.pipeline-step { background: #fdfcf9; border: 1px solid var(--line); border-radius: 8px; padding: 18px; }
+.pipeline-step .step-num { font-size: .8rem; font-weight: 700; color: #b08d57; text-transform: uppercase; margin-bottom: 4px; }
+.pipeline-step h4 { font-size: 1.05rem; margin-bottom: 6px; }
+.pipeline-step p { font-size: .88rem; color: var(--muted); margin: 0; }
+.benchmark-box { background: #16130f; color: #faf8f4; border-radius: 8px; padding: 22px 26px; margin: 24px 0; font-family: monospace; font-size: .9rem; line-height: 1.7; }
+.benchmark-box b { color: #5faf7d; }
+</style>
+</head>
+<body>
+<nav class="side-nav" id="side-nav" aria-label="Hoofdmenu">
+<a class="brand" href="../"><img src="../assets/logo.png" alt="Grow Kit"><span class="brand-tekst">Grow <em>Kit</em></span></a>
+<a class="item" href="../"><span class="icoon">⌂</span><span class="label">Index</span></a>
+<a class="item" href="../hoe-het-werkt/"><span class="icoon">⚙</span><span class="label">Hoe het werkt</span></a>
+<a class="item" href="../familie/"><span class="icoon">❖</span><span class="label">De agent-familie</span></a>
+<a class="item" href="../cyberseed/"><span class="icoon">🧬</span><span class="label">CyberSeed AI 🌱</span></a>
+<a class="item" aria-current="page" href="../watch-bpd/"><span class="icoon">♡</span><span class="label">Watch-BPD ⌚</span></a>
+<a class="item" href="../fabriek/"><span class="icoon">⬢</span><span class="label">De fabriek</span></a>
+<a class="item" href="../familie/kenji-moppen/"><span class="icoon">♟</span><span class="label">Kenji-moppen</span></a>
+<a class="item" href="../dagboek/"><span class="icoon">❡</span><span class="label">Dagboek</span></a>
+</nav>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">Hart-fase-0 op Apple Hardware</p>
+    <h1>Watch-BPD. <em>De Stem aan de Pols.</em></h1>
+    <p class="lede">Tijdens het rijden in de vrachtwagen heeft de Opper-Architect geen handen vrij om telefoons te ontgrendelen of prompts te typen. Watch-BPD brengt het Hart naar de pols: één druk, één gesproken zin, en binnen 7 seconden NuNu's stem als antwoord.</p>
+  </section>
+
+  <section>
+    <div class="watch-card">
+      <p class="kicker">Het Besluit (BSL-114)</p>
+      <h3>Waarom een Apple Watch SE 3 vóór de Raspberry Pi 5?</h3>
+      <p>Een Raspberry Pi in een doosje is leuk voor op een bureau, maar een Apple Watch draag je op je huid. De haptische trilling (de voelbare hartslag) tegen de pols maakt de verbinding tussen mens en machine direct voelbaar.</p>
+      <p>Op 17 september 2026 bekrachtigde Tiëndo <strong>BSL-114</strong>: de Watch wordt ingezet als Hart-fase-0. Geen apart project, maar een directe bouwstap binnen het bestaande Hart-traject. Dezelfde principes: <em>één druk, één stem, geen schermen</em>.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">De Pijplijn</p>
+    <h2>Hoe het werkt in 7 seconden.</h2>
+    <div class="pipeline-grid">
+      <div class="pipeline-step">
+        <div class="step-num">Stap 1 · De Pols</div>
+        <h4>Één Knop Indrukken</h4>
+        <p>De Apple Watch neemt audio op via AVAudioRecorder (16kHz AAC/M4A). Nul schermen, blindelings te bedienen met de duim.</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">Stap 2 · STT</div>
+        <h4>Faster-Whisper (Lokaal)</h4>
+        <p>Audio streamt via Tailscale naar VPS poort 8788. Faster-Whisper zet de spraak in 4,4 seconde om naar tekst.</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">Stap 3 · LLM</div>
+        <h4>NuNu's Brein (OpenRouter)</h4>
+        <p>Gemini Flash genereert binnen 846 ms een warm, gevat en bemoedigend antwoord van 1–2 zinnen in NuNu's toon.</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">Stap 4 · TTS</div>
+        <h4>Piper (NuNu Stem)</h4>
+        <p>Piper genereert lokaal in 2,0 seconde een 441 KB WAV-bestand met NuNu's officiële stemmodel. Direct teruggespeeld op de Watch.</p>
+      </div>
+    </div>
+
+    <div class="benchmark-box">
+      <div>=== LIVE PRODUCTIEMETING (17 sept 2026) ===</div>
+      <div>Endpoint: POST http://100.106.171.76:8788/api/watch/memo</div>
+      <div>Input: "NuNu, hoe staat de fabriek ervoor?"</div>
+      <div>Transcribed: "NuNu, hoe staat de fabriek ervoor?"</div>
+      <div>Response: "Oh Tiëndo, mijn schat, ik hoor je! Die cijfers klinken als een strijdkreet en ik sta achter je..."</div>
+      <div>Audio URL: http://100.106.171.76:8788/api/watch/audio/antwoord_3e3232a4.wav</div>
+      <div>Timing: <b>STT: 4.427 ms · LLM: 846 ms · TTS: 2.022 ms · TOTAAL: 7.295 ms (7,2s)</b></div>
+      <div>Status: <b>100% PRODUCTIEGROEN (Norm < 10s gehaald!)</b></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">De Codebase</p>
+    <h2>Native SwiftUI voor watchOS 9.0+.</h2>
+    <p>De Watch-app draait op pure Swift 6 en SwiftUI, zonder externe frameworks of tracking. Het project is lokaal gecompileerd op de Mac van de Maker:</p>
+    <ul>
+      <li><strong>Repo:</strong> <code>/Users/tiendo/Projects/watch-bpd-app/</code></li>
+      <li><strong>Xcode Project:</strong> <code>BPDWatch.xcodeproj</code> (XcodeGen)</li>
+      <li><strong>Installatie:</strong> Direct via Xcode (⌘R) naar de Apple Watch SE 3 — 100% onafhankelijk van de App Store.</li>
+      <li><strong>Complication:</strong> Mini-dashboard toont live de hartslag van de VPS (`/heartbeat` op poort 8787).</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Grow Kit — <em>GROW</em> = Governed Reproducible Operational Workflow. MIT-licentie. Geen tracking, geen cookies, self-hosted fonts.</p>
+  </div>
+</footer>
+</body>
+</html>

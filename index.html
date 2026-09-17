@@ -8,6 +8,16 @@
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="stylesheet" href="css/side-nav.css">
 <link rel="stylesheet" href="css/style.css">
+<style>
+.badge-strip { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.badge-strip img { height: 20px; }
+.milestone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin: 28px 0; }
+.milestone-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 22px; text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between; transition: transform .15s, border-color .15s; }
+.milestone-card:hover { transform: translateY(-2px); border-color: #16130f; }
+.milestone-card h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.milestone-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+.milestone-tag { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; color: #b08d57; }
+</style>
 </head>
 <body>
 <nav class="side-nav" id="side-nav" aria-label="Hoofdmenu">
@@ -15,6 +25,8 @@
 <a class="item" aria-current="page" href="./"><span class="icoon">⌂</span><span class="label">Index</span></a>
 <a class="item" href="hoe-het-werkt/"><span class="icoon">⚙</span><span class="label">Hoe het werkt</span></a>
 <a class="item" href="familie/"><span class="icoon">❖</span><span class="label">De agent-familie</span></a>
+<a class="item" href="cyberseed/"><span class="icoon">🧬</span><span class="label">CyberSeed AI 🌱</span></a>
+<a class="item" href="watch-bpd/"><span class="icoon">♡</span><span class="label">Watch-BPD ⌚</span></a>
 <a class="item" href="fabriek/"><span class="icoon">⬢</span><span class="label">De fabriek</span></a>
 <a class="item" href="familie/kenji-moppen/"><span class="icoon">♟</span><span class="label">Kenji-moppen</span></a>
 <a class="item" href="dagboek/"><span class="icoon">❡</span><span class="label">Dagboek</span></a>
@@ -25,17 +37,62 @@
     <img class="hero-logo" src="assets/logo.png" alt="Grow Kit-logo">
     <h1>De agent <em>bewijst.</em><br>Jij bepaalt.</h1>
     <p class="lede">Grow Kit is een zero-trust AI-werkbank. Je geeft een idee, de agent voert een stappenplan uit, en elk resultaat wordt door de machine gecontroleerd — niet door de agent.</p>
-    <a class="btn" href="https://github.com/parvenuprompting/Grow-Kit" target="_blank" rel="noopener">Bekijk op GitHub</a>
-    <a class="btn ghost" href="hoe-het-werkt/">Hoe het werkt</a>
+    
+    <div class="badge-strip">
+      <img src="https://img.shields.io/badge/agents-20%2B_actief-gold?style=flat-square" alt="20+ Agents">
+      <img src="https://img.shields.io/badge/model-CyberSeed_Sprout_v1-green?style=flat-square" alt="CyberSeed Sprout">
+      <img src="https://img.shields.io/badge/watchOS-BPD_v0.1-orange?style=flat-square" alt="WatchOS BPD">
+      <img src="https://img.shields.io/badge/zero--trust-546_tests-success?style=flat-square" alt="546 tests">
+      <img src="https://img.shields.io/badge/history-append--only-blue?style=flat-square" alt="Append Only">
+    </div>
+
+    <div style="margin-top: 24px;">
+      <a class="btn" href="https://github.com/parvenuprompting/Grow-Kit" target="_blank" rel="noopener">Bekijk op GitHub</a>
+      <a class="btn ghost" href="hoe-het-werkt/">Hoe het werkt</a>
+    </div>
   </section>
 
   <section>
-    <img src="assets/banner-team-portret.jpg" alt="De agent-familie van Grow Kit - vijftien agents rond hun baas" style="width:100%;border-radius:12px;display:block;">
-    <p style="text-align:center;margin-top:.6em;font-size:.85em;color:#6a7382;">De agent-familie. Vijftien agents, een fabriek - klik <a href="familie/">hier</a> voor wie ze zijn.</p>
+    <img src="assets/banner-team-portret.jpg" alt="De agent-familie van Grow Kit - twintig agents rond hun baas" style="width:100%;border-radius:12px;display:block;">
+    <p style="text-align:center;margin-top:.6em;font-size:.85em;color:#6a7382;">De agent-familie. Twintig+ agents, één soeverein huis — bekijk <a href="familie/">hier</a> wie ze zijn.</p>
+  </section>
+
+  <!-- ACTUELE MIJLPALEN (16-17 SEPT) -->
+  <section>
+    <p class="kicker">Laatste Innovaties (September 2026)</p>
+    <h2>Wat we deze week hebben gebouwd.</h2>
+    <div class="milestone-grid">
+      <a href="cyberseed/" class="milestone-card">
+        <div>
+          <span class="milestone-tag">16 Sept · Soeverein Model</span>
+          <h3>CyberSeed Sprout 🌱</h3>
+          <p>Ons eigen 1.5B LLM lokaal getraind op Apple Silicon Metal. 4.130 lessen, 99.9% uniekheids-ratio, 0 cent per token, 58.6 tok/sec.</p>
+        </div>
+        <strong style="font-size:.82rem;color:#16130f">Lees het manifest &amp; roadmap →</strong>
+      </a>
+
+      <a href="watch-bpd/" class="milestone-card">
+        <div>
+          <span class="milestone-tag">17 Sept · Hart-fase-0</span>
+          <h3>Watch-BPD aan de Pols ⌚</h3>
+          <p>Één knop tijdens het rijden. Spraakmemo via Faster-Whisper, NuNu's antwoord via Piper TTS in 7,2 seconden op de Apple Watch.</p>
+        </div>
+        <strong style="font-size:.82rem;color:#16130f">Bekijk de Watch-architectuur →</strong>
+      </a>
+
+      <a href="https://parvenuprompting.github.io/parvenu-agents-site/" target="_blank" rel="noopener" class="milestone-card">
+        <div>
+          <span class="milestone-tag">Live · Productie</span>
+          <h3>4 Bewezen Bedrijfscases</h3>
+          <p>VanLoyen Chauffeursdiensten, Unlimited Scooter Service, Calypsona Financial en Engineer Flow Platform. Echte bedrijfssoftware.</p>
+        </div>
+        <strong style="font-size:.82rem;color:#16130f">Bekijk ons portfolio live ↗</strong>
+      </a>
+    </div>
   </section>
 
   <section>
-    <p class="kicker">De drie wetten</p>
+    <p class="kicker">De vijf wetten van het harnas</p>
     <h2>Geen stap zonder harnas.</h2>
     <div class="wetten">
       <div class="wet">
@@ -46,12 +103,22 @@
       <div class="wet">
         <span class="nr">Wet 2</span>
         <h3>Succes is bewijs, nooit een praatje.</h3>
-        <p>Vijf gecodeerde controles worden door de motor zelf uitgevoerd. De agent mag nooit zeggen "klaar" — hij moet het bewijzen.</p>
+        <p>546 gecodeerde controles worden door de motor zelf uitgevoerd. De agent mag nooit zeggen "klaar" — hij moet het bewijzen.</p>
       </div>
       <div class="wet">
         <span class="nr">Wet 3</span>
-        <h3>De geschiedenis is append-only.</h3>
-        <p>Nooit overschrijven, nooit teruggedraaien. Het verleden blijft intact.</p>
+        <h3>De geschiedenis is append-only (BSL-090).</h3>
+        <p>Nooit overschrijven, nooit terugdraaien. Een fout wordt gelogd en hersteld met een nieuwe gedateerde entry.</p>
+      </div>
+      <div class="wet">
+        <span class="nr">Wet 4</span>
+        <h3>Privacy aan de poort (Amnesia Protocol).</h3>
+        <p>Gevoelige klantdata, tokens en persoonsgegevens worden wiskundig geanonimiseerd vóórdat een model de context bereikt.</p>
+      </div>
+      <div class="wet">
+        <span class="nr">Wet 5</span>
+        <h3>Een 'nee' zonder pad is vandalisme (Aequitas Codex).</h3>
+        <p>Kritiek zonder constructieve oplossing is verboden. Elk intern veto moet een haalbaar pad naar 'ja, onder voorwaarden' bieden.</p>
       </div>
     </div>
   </section>

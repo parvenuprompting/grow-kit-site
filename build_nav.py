@@ -23,6 +23,8 @@ MENU = [
     ("", "Index", "⌂"),
     ("hoe-het-werkt/", "Hoe het werkt", "⚙"),
     ("familie/", "De agent-familie", "❖"),
+    ("cyberseed/", "CyberSeed AI 🌱", "🧬"),
+    ("watch-bpd/", "Watch-BPD ⌚", "♡"),
     ("fabriek/", "De fabriek", "⬢"),
     ("familie/kenji-moppen/", "Kenji-moppen", "♟"),
     
