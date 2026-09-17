@@ -64,6 +64,13 @@ def nav_html(diepte: int, pagina_pad: str) -> str:
             f'  <a class="item"{cur} href="{relatief(pad, diepte)}">'
             f'<span class="icoon">{icoon}</span><span class="label">{label}</span></a>'
         )
+    # Externe link naar Parvenu Lab
+    regels.append(
+        '  <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line);">'
+        '    <a class="item" href="https://parvenulab.nl/" target="_blank" rel="noopener">'
+        '      <span class="icoon">🏛️</span><span class="label">Parvenu Lab ↗</span></a>'
+        '  </div>'
+    )
     regels.append("</nav>")
     return "\n".join(regels)
 
