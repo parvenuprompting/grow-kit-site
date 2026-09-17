@@ -77,25 +77,24 @@
 
     <div class="benchmark-box">
       <div>=== LIVE PRODUCTIEMETING (17 sept 2026) ===</div>
-      <div>Endpoint: POST http://100.106.171.76:8788/api/watch/memo</div>
-      <div>Input: "NuNu, hoe staat de fabriek ervoor?"</div>
-      <div>Transcribed: "NuNu, hoe staat de fabriek ervoor?"</div>
-      <div>Response: "Oh Tiëndo, mijn schat, ik hoor je! Die cijfers klinken als een strijdkreet en ik sta achter je..."</div>
-      <div>Audio URL: http://100.106.171.76:8788/api/watch/audio/antwoord_3e3232a4.wav</div>
+      <div>Endpoint: POST /api/watch/memo (Private Tailnet)</div>
+      <div>Input: "Hoe staat de fabriek ervoor?"</div>
+      <div>Transcribed: "Hoe staat de fabriek ervoor?"</div>
+      <div>Response: "De fabriek draait stabiel. Alle systemen groen en onder controle."</div>
       <div>Timing: <b>STT: 4.427 ms · LLM: 846 ms · TTS: 2.022 ms · TOTAAL: 7.295 ms (7,2s)</b></div>
-      <div>Status: <b>100% PRODUCTIEGROEN (Norm < 10s gehaald!)</b></div>
+      <div>Status: <b>100% PRODUCTIEGROEN (Norm &lt; 10s gehaald!)</b></div>
     </div>
   </section>
 
   <section>
     <p class="kicker">De Codebase</p>
     <h2>Native SwiftUI voor watchOS 9.0+.</h2>
-    <p>De Watch-app draait op pure Swift 6 en SwiftUI, zonder externe frameworks of tracking. Het project is lokaal gecompileerd op de Mac van de Maker:</p>
+    <p>De Watch-app draait op pure Swift 6 en SwiftUI, zonder externe frameworks of tracking. Het project is lokaal gecompileerd op Apple Silicon hardware:</p>
     <ul>
-      <li><strong>Repo:</strong> <code>/Users/tiendo/Projects/watch-bpd-app/</code></li>
+      <li><strong>Architectuur:</strong> Native watchOS Client (SwiftUI)</li>
       <li><strong>Xcode Project:</strong> <code>BPDWatch.xcodeproj</code> (XcodeGen)</li>
-      <li><strong>Installatie:</strong> Direct via Xcode (⌘R) naar de Apple Watch SE 3 — 100% onafhankelijk van de App Store.</li>
-      <li><strong>Complication:</strong> Mini-dashboard toont live de hartslag van de VPS (`/heartbeat` op poort 8787).</li>
+      <li><strong>Installatie:</strong> Direct via Xcode (⌘R) naar de Apple Watch — 100% onafhankelijk van de App Store.</li>
+      <li><strong>Complication:</strong> Mini-dashboard toont live de hartslag van de VPS.</li>
     </ul>
   </section>
 </main>
