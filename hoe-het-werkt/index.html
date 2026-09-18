@@ -72,6 +72,22 @@
     <h2>Test 4 bewijst het.</h2>
     <p style="max-width:38em; color:var(--muted);">Het harnas plant een taak, wordt met <code>kill&nbsp;-9</code> neergeschoten, hervat en ratificeert — met alleen python3. Geen agent nodig, geen staat kwijt. Het logboek is de waarheid.</p>
   </section>
+
+  <section id="kijk-mee">
+    <p class="kicker">Kijk mee in het harnas</p>
+    <h2>Echt scherm, echt werk.</h2>
+    <p style="max-width:38em; color:var(--muted);">De Agent-Chat van het harnas: elk bericht naar de familie is een taak via de wachtrij — met gouverneur en faalcontract als bewakers. Klik om te vergroten.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;">
+      <a href="#shot-agentchat"><img src="../assets/agentchat-1.jpg" alt="Agent-Chat in het GrowKit-harnas" style="width:340px;border-radius:12px;border:1px solid var(--line);"></a>
+    </div>
+  </section>
+  <div id="shot-agentchat" style="position:fixed;inset:0;background:rgba(3,6,3,.92);display:none;align-items:center;justify-content:center;z-index:99;cursor:zoom-out">
+    <a href="#kijk-mee" style="display:contents"><img src="../assets/agentchat-1.jpg" alt="Agent-Chat vergroot" style="max-width:92vw;max-height:92vh;border-radius:12px;"></a>
+  </div>
+  <script>
+    document.querySelectorAll('a[href^="#shot-"]').forEach(a=>a.addEventListener("click",()=>{const t=document.querySelector(a.getAttribute("href"));if(t)t.style.display="flex";}));
+    document.querySelectorAll('div[id^="shot-"] a').forEach(a=>a.addEventListener("click",()=>{a.parentElement.style.display="none";}));
+  </script>
 </main>
 
 <footer>
