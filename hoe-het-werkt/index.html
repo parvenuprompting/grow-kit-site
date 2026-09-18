@@ -75,19 +75,21 @@
 
   <section id="kijk-mee">
     <p class="kicker">Kijk mee in het harnas</p>
-    <h2>Echt scherm, echt werk.</h2>
-    <p style="max-width:38em; color:var(--muted);">De Agent-Chat van het harnas: elk bericht naar de familie is een taak via de wachtrij — met gouverneur en faalcontract als bewakers. Klik om te vergroten.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;">
-      <a href="#shot-agentchat"><img src="../assets/agentchat-1.jpg" alt="Agent-Chat in het GrowKit-harnas" style="width:340px;border-radius:12px;border:1px solid var(--line);"></a>
+    <h2>Negen schermen. Eén werkbank.</h2>
+    <p style="max-width:38em; color:var(--muted);">De module-ronde van het harnas, in de volgorde van een werkdag: opstarten → thuis → praat met de familie → automatische voorstellen → de promptbibliotheek → het brein in kaart → het lokale model → privacy → de uitleg. Klik een scherm om te vergroten.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:16px;">
+      <a href="#gk-1-opstart"><img src="../assets/fotos/gk-1-opstart.jpg" alt="GrowKit opstarten" style="width:100%;border-radius:12px;border:1px solid var(--line);"></a>
+      <a href="#gk-2-thuis"><img src="../assets/fotos/gk-2-thuis.jpg" alt="Thuis — landingspagina" style="width:100%;border-radius:12px;border:1px solid var(--line);"></a>
+      <a href="#gk-3-agentchat"><img src="../assets/fotos/gk-3-agentchat.jpg" alt="Agent-Chat" style="width:100%;border-radius:12px;border:1px solid var(--line);"></a>
+      <a href="#gk-4-automatiek"><img src="../assets/fotos/gk-4-automatiek.jpg" alt="Automatiek" style="width:100%;border-radius:12px;border:1px solid var(--line);"></a>
+      <a href="#gk-5-prompts"><img src="../assets/fotos/gk-5-prompts.jpg" alt="Promptbibliotheek" style="width:100%;border-radius:12px;border:1px solid var(--line);"></a>
+      <a href="#gk-6-kennisgraaf"><img src="../assets/fotos/gk-6-kennisgraaf.jpg" alt="Knowledge Graph" style="width:100%;border-radius:12px;border:1px solid var(--line);"></a>
+      <a href="#gk-7-cyberseed"><img src="../assets/fotos/gk-7-cyberseed.jpg" alt="CyberSeed lokaal model" style="width:100%;border-radius:12px;border:1px solid var(--line);"></a>
+      <a href="#gk-8-amnesia"><img src="../assets/fotos/gk-8-amnesia.jpg" alt="Amnesia Protocol" style="width:100%;border-radius:12px;border:1px solid var(--line);"></a>
+      <a href="#gk-9-uitleg"><img src="../assets/fotos/gk-9-uitleg.jpg" alt="Uitleg" style="width:100%;border-radius:12px;border:1px solid var(--line);"></a>
     </div>
+    <div style="margin-top:14px;"><a href="#top" style="color:var(--muted);font-size:.9rem;">↑ terug naar boven</a></div>
   </section>
-  <div id="shot-agentchat" style="position:fixed;inset:0;background:rgba(3,6,3,.92);display:none;align-items:center;justify-content:center;z-index:99;cursor:zoom-out">
-    <a href="#kijk-mee" style="display:contents"><img src="../assets/agentchat-1.jpg" alt="Agent-Chat vergroot" style="max-width:92vw;max-height:92vh;border-radius:12px;"></a>
-  </div>
-  <script>
-    document.querySelectorAll('a[href^="#shot-"]').forEach(a=>a.addEventListener("click",()=>{const t=document.querySelector(a.getAttribute("href"));if(t)t.style.display="flex";}));
-    document.querySelectorAll('div[id^="shot-"] a').forEach(a=>a.addEventListener("click",()=>{a.parentElement.style.display="none";}));
-  </script>
 </main>
 
 <footer>
@@ -96,5 +98,20 @@
   </div>
 </footer>
 <script src="../css/side-nav.js"></script>
+<div id="gk-overlay" style="position:fixed;inset:0;background:rgba(3,6,3,.93);display:none;align-items:center;justify-content:center;z-index:999;cursor:zoom-out">
+    <img id="gk-overlay-img" src="" alt="" style="max-width:94vw;max-height:92vh;border-radius:12px;">
+  </div>
+  <script>
+  document.querySelectorAll('a[href^="#gk-"]').forEach(function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      var img = a.querySelector("img");
+      document.getElementById("gk-overlay-img").src = img.src;
+      document.getElementById("gk-overlay").style.display = "flex";
+    });
+  });
+  document.getElementById("gk-overlay").addEventListener("click", function(){ this.style.display = "none"; });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") document.getElementById("gk-overlay").style.display = "none"; });
+  </script>
 </body>
 </html>
