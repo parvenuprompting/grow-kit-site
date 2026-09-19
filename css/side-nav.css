@@ -29,7 +29,7 @@
   padding: 4px 22px 30px;
   text-decoration: none; white-space: nowrap;
 }
-.side-nav .brand img { width: 40px; height: 40px; flex-shrink: 0; }
+.side-nav .brand img { width: 40px; height: 40px; flex-shrink: 0; object-fit: contain; }
 .side-nav .brand span { font-size: 1.35em; color: var(--ink); }
 .side-nav .brand em { color: var(--sn-groen); font-style: italic; }
 
@@ -94,7 +94,7 @@ body { padding-left: 260px; }
     text-decoration: none;
   }
   .mobile-header .brand img {
-    width: 34px; height: 34px;
+    width: 34px; height: 34px; object-fit: contain;
   }
   .mobile-header .brand span {
     font-size: 1.25rem;
